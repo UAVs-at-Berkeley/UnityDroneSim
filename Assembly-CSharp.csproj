@@ -53,6 +53,7 @@
   <ItemGroup>
      <Compile Include="Assets\CameraFollowScript.cs" />
      <Compile Include="Assets\DroneMovementScript.cs" />
+     <Compile Include="Assets\MaterialSetter.cs" />
  <Reference Include="UnityEngine.UIAutomation">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
  </Reference>
