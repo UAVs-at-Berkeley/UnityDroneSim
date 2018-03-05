@@ -51,9 +51,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\BasicControl.cs" />
+     <Compile Include="Assets\BasicGyro.cs" />
+     <Compile Include="Assets\Camera\CameraLookAt.cs" />
      <Compile Include="Assets\CameraFollowScript.cs" />
+     <Compile Include="Assets\ComputerModule.cs" />
+     <Compile Include="Assets\Controller\Controller.cs" />
+     <Compile Include="Assets\DroneContinuousMovement.cs" />
      <Compile Include="Assets\DroneMovementScript.cs" />
      <Compile Include="Assets\MaterialSetter.cs" />
+     <Compile Include="Assets\Motors\Motor.cs" />
+     <Compile Include="Assets\PID.cs" />
  <Reference Include="UnityEngine.UIAutomation">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
  </Reference>

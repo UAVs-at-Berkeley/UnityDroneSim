@@ -92,7 +92,7 @@ public class DroneMovementScript : MonoBehaviour {
         if (Mathf.Abs(Input.GetAxis("Vertical")) < .2f && Mathf.Abs(Input.GetAxis("Horizontal")) > .2f){
             drone.velocity = Vector3.ClampMagnitude(drone.velocity, Mathf.Lerp(drone.velocity.magnitude, 10.0f, Time.deltaTime * 5f));
         }
-        if (Mathf.Abs(Input.GetAxis("Vertical")) > .2f && Mathf.Abs(Input.GetAxis("Horizontal")) < .2f) {
+        if (Mathf.Abs(Input.GetAxis("Vertical")) < .2f && Mathf.Abs(Input.GetAxis("Horizontal")) < .2f) {
             drone.velocity = Vector3.SmoothDamp(drone.velocity, Vector3.zero, ref velocityToSmoothDampingToZero, .95f);
         }
     }
