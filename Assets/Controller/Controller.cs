@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Controller : MonoBehaviour {
 
+	public bool isAgentControl = false;
+
 	public float Throttle = 0.0f;
 	public float Yaw = 0.0f;
 	public float Pitch = 0.0f;
@@ -26,11 +28,21 @@ public class Controller : MonoBehaviour {
 	public string RollCommand = "Roll";
 	public bool InvertRoll = true;
 
+
 	void Update() {
-        Throttle = Input.GetAxisRaw(ThrottleCommand) * (InvertThrottle ? -1 : 1);
-        Yaw = Input.GetAxisRaw(YawCommand) * (InvertYaw ? -1 : 1);
-        Pitch = Input.GetAxisRaw(PitchCommand) * (InvertPitch ? -1 : 1);
-        Roll = Input.GetAxisRaw(RollCommand) * (InvertRoll ? -1 : 1);
+		if (!isAgentControl) {
+			Throttle = Input.GetAxisRaw (ThrottleCommand) * (InvertThrottle ? -1 : 1);
+			Yaw = Input.GetAxisRaw (YawCommand) * (InvertYaw ? -1 : 1);
+			Pitch = Input.GetAxisRaw (PitchCommand) * (InvertPitch ? -1 : 1);
+			Roll = Input.GetAxisRaw (RollCommand) * (InvertRoll ? -1 : 1);
+		}
+	}
+
+	public void InputAction(float throttle, float pitch, float roll, float yaw) {
+		Throttle = throttle;
+		Yaw = yaw;
+		Pitch = pitch;
+		Roll = roll;
 	}
 
 }

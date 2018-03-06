@@ -18,7 +18,7 @@ public class BasicControl : MonoBehaviour {
 	void FixedUpdate() {
         Computer.UpdateComputer(Controller.Pitch, Controller.Roll, Controller.Throttle * ThrottleIncrease);
         ThrottleValue = Computer.HeightCorrection;
-		Debug.Log (Computer.PitchCorrection);
+//		Debug.Log (Computer.PitchCorrection);
         ComputeMotors();
         if (Computer != null)
             Computer.UpdateGyro();

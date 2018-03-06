@@ -60,6 +60,54 @@
      <Compile Include="Assets\DroneContinuousMovement.cs" />
      <Compile Include="Assets\DroneMovementScript.cs" />
      <Compile Include="Assets\MaterialSetter.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\3DBall\Scripts\Ball3DAcademy.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\3DBall\Scripts\Ball3DAgent.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\3DBall\Scripts\Ball3DDecision.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\Area\Scripts\Area.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\Area\Scripts\AreaAgent.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\Area\Scripts\AreaDecision.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\Area\Scripts\GoalInteract.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\Area\Scripts\Push\PushAcademy.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\Area\Scripts\Push\PushAgent.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\Area\Scripts\Push\PushArea.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\Area\Scripts\Wall\WallAcademy.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\Area\Scripts\Wall\WallAgent.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\Area\Scripts\Wall\WallArea.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\Basic\Scripts\BasicAcademy.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\Basic\Scripts\BasicAgent.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\Basic\Scripts\BasicDecision.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\Crawler\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\Crawler\Scripts\CrawlerAcademy.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\Crawler\Scripts\CrawlerAgentConfigurable.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\Crawler\Scripts\CrawlerBodyContact.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\Crawler\Scripts\CrawlerLegContact.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\GridWorld\Scripts\GridAcademy.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\GridWorld\Scripts\GridAgent.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\Reacher\Scripts\FlyCamera.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\Reacher\Scripts\ReacherAcademy.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\Reacher\Scripts\ReacherAgent.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\Reacher\Scripts\ReacherDecision.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\Reacher\Scripts\ReacherGoal.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\Tennis\Scripts\hitWall.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\Tennis\Scripts\TennisAcademy.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\Tennis\Scripts\TennisAgent.cs" />
+     <Compile Include="Assets\ML-Agents\Examples\Tennis\Scripts\TennisArea.cs" />
+     <Compile Include="Assets\ML-Agents\Scripts\Academy.cs" />
+     <Compile Include="Assets\ML-Agents\Scripts\Agent.cs" />
+     <Compile Include="Assets\ML-Agents\Scripts\Brain.cs" />
+     <Compile Include="Assets\ML-Agents\Scripts\Communicator.cs" />
+     <Compile Include="Assets\ML-Agents\Scripts\CoreBrain.cs" />
+     <Compile Include="Assets\ML-Agents\Scripts\CoreBrainExternal.cs" />
+     <Compile Include="Assets\ML-Agents\Scripts\CoreBrainHeuristic.cs" />
+     <Compile Include="Assets\ML-Agents\Scripts\CoreBrainInternal.cs" />
+     <Compile Include="Assets\ML-Agents\Scripts\CoreBrainPlayer.cs" />
+     <Compile Include="Assets\ML-Agents\Scripts\Decision.cs" />
+     <Compile Include="Assets\ML-Agents\Scripts\ExternalCommunicator.cs" />
+     <Compile Include="Assets\ML-Agents\Scripts\Monitor.cs" />
+     <Compile Include="Assets\ML-Agents\Scripts\UnityAgentsException.cs" />
+     <Compile Include="Assets\ML-Agents\Template\Scripts\DroneAcademy.cs" />
+     <Compile Include="Assets\ML-Agents\Template\Scripts\DroneAgent.cs" />
+     <Compile Include="Assets\ML-Agents\Template\Scripts\TemplateDecision.cs" />
      <Compile Include="Assets\Motors\Motor.cs" />
      <Compile Include="Assets\PID.cs" />
  <Reference Include="UnityEngine.UIAutomation">
@@ -145,6 +193,9 @@
  </Reference>
  <Reference Include="UnityEngine.StandardEvents">
  <HintPath>/Users/suneelbelkhale1/Library/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
+ </Reference>
+ <Reference Include="Newtonsoft.Json">
+ <HintPath>/Users/suneelbelkhale1/git/UnityDroneSim/Assets/ML-Agents/Plugins/JSON/Newtonsoft.Json.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

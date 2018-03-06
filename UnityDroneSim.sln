@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityDroneSim", "Assembly-CSharp.csproj", "{E8CDC36A-3E92-55FA-59E2-3563DE4B7F0C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityDroneSim", "Assembly-CSharp-Editor.csproj", "{26B39EDA-5F70-F4A0-76EC-B75B295F82E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{E8CDC36A-3E92-55FA-59E2-3563DE4B7F0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8CDC36A-3E92-55FA-59E2-3563DE4B7F0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8CDC36A-3E92-55FA-59E2-3563DE4B7F0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26B39EDA-5F70-F4A0-76EC-B75B295F82E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26B39EDA-5F70-F4A0-76EC-B75B295F82E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26B39EDA-5F70-F4A0-76EC-B75B295F82E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26B39EDA-5F70-F4A0-76EC-B75B295F82E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

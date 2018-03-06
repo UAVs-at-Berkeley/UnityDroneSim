@@ -44,3 +44,4 @@
 /Users/suneelbelkhale1/git/UnityDroneSim/Temp/bin/Debug/Assembly-CSharp.dll
 /Users/suneelbelkhale1/git/UnityDroneSim/obj/Debug/Assembly-CSharp.dll
 /Users/suneelbelkhale1/git/UnityDroneSim/obj/Debug/Assembly-CSharp.dll.mdb
+/Users/suneelbelkhale1/git/UnityDroneSim/Temp/bin/Debug/Newtonsoft.Json.dll
