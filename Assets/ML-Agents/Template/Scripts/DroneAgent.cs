@@ -13,9 +13,23 @@ public class DroneAgent: Agent {
 	public override List<float> CollectState()
 	{
 		List<float> state = new List<float>();
+// 13 elements
 		state.Add (basicControl.Computer.Gyro.Pitch / basicControl.Computer.PitchLimit);
 		state.Add (basicControl.Computer.Gyro.Roll / basicControl.Computer.RollLimit);
 		state.Add (basicControl.Computer.Gyro.Yaw / (180));
+
+		state.Add (basicControl.transform.position.x);
+		state.Add (basicControl.transform.position.y);
+		state.Add (basicControl.transform.position.z);
+
+		state.Add (basicControl.transform.rotation.x);
+		state.Add (basicControl.transform.rotation.y);
+		state.Add (basicControl.transform.rotation.z);
+
+		state.Add (Target.transform.position.x);
+		state.Add (Target.transform.position.y);
+		state.Add (Target.transform.position.z);
+		state.Add ((collided ? 1.0f : 0.0f));
 		return state;
 	}
 
