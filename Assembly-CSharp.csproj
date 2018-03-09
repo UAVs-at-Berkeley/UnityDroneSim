@@ -54,6 +54,7 @@
      <Compile Include="Assets\BasicControl.cs" />
      <Compile Include="Assets\BasicGyro.cs" />
      <Compile Include="Assets\Camera\CameraLookAt.cs" />
+     <Compile Include="Assets\Camera\FPVCameraScript.cs" />
      <Compile Include="Assets\CameraFollowScript.cs" />
      <Compile Include="Assets\ComputerModule.cs" />
      <Compile Include="Assets\Controller\Controller.cs" />

@@ -22,13 +22,13 @@ public class Motor : MonoBehaviour {
 
     // Method called by BasicControl class to calculate force value of this specific motor.  The force application itself will be done at BasicControl class
 	public void UpdateForceValues() {
-//		Debug.Log(mainController.Computer.PitchCorrection * PitchFactor);
         float UpForceThrottle = Mathf.Clamp(mainController.ThrottleValue, 0, 1) * Power;
-        float UpForceTotal = UpForceThrottle;
+		float UpForceTotal = UpForceThrottle;
 		UpForceTotal -= mainController.Computer.PitchCorrection * PitchFactor;
 		UpForceTotal -= mainController.Computer.RollCorrection * RollFactor;
 
 		UpForce = UpForceTotal;
+		Debug.Log (UpForce);
 
 		SideForce = PreNormalize (mainController.Controller.Yaw, YawFactor);
 

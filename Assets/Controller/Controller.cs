@@ -39,10 +39,12 @@ public class Controller : MonoBehaviour {
 	}
 
 	public void InputAction(float throttle, float pitch, float roll, float yaw) {
-		Throttle = throttle;
-		Yaw = yaw;
-		Pitch = pitch;
-		Roll = roll;
+		if (isAgentControl) {
+			Throttle = throttle;
+			Yaw = yaw;
+			Pitch = pitch;
+			Roll = roll;
+		}
 	}
 
 }
