@@ -160,6 +160,7 @@ d9a326ee1cb1e73fe2c8448643070f1f Assembly-CSharp.dll:.PushAcademy
 30db6bf1abfbd17c6cdd1385b9eba6ca Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.DepthOfField
 1a88c5d992da2735604c2f19402f44ca Assembly-CSharp.dll:.CrawlerAgentConfigurable
 f6fbb33afc8bd390593ba141d5e977f3 Assembly-CSharp.dll:.CoreBrainPlayer
+9beb4bf6c6fbc2b689736d25039828ad Assembly-CSharp.dll:.FPVCameraScript
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.PostEffectsHelper
 b26b3a55de2a8cbeee573d45c8848f09 Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.ScreenSpaceAmbientOcclusion
 e544c1799932483c86d40a69e7508b10 Assembly-CSharp.dll:.TennisAcademy

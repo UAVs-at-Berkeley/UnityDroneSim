@@ -360,10 +360,10 @@ MonoBehaviour:
     stateSpaceType: 1
   brainType: 0
   CoreBrains:
-  - {fileID: 1455887210}
-  - {fileID: 2066339913}
-  - {fileID: 435778285}
-  instanceID: 14484
+  - {fileID: 1608865895}
+  - {fileID: 1975964214}
+  - {fileID: 694205692}
+  instanceID: 11274
 --- !u!1 &223441343
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,18 +610,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &435778285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35813a1be64e144f887d7d5f15b963fa, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  brain: {fileID: 174605309}
 --- !u!1 &447478845
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,6 +889,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: d4f42247e4fd5aa469325fdd13e321b1, type: 3}
+--- !u!114 &694205692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35813a1be64e144f887d7d5f15b963fa, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  brain: {fileID: 174605309}
 --- !u!1 &976428326
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,52 +1331,6 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4364368, guid: 0018a0d5fcd38d34d81764846a43c4bd, type: 2}
---- !u!114 &1455887210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  continuousPlayerActions:
-  - key: 105
-    index: 0
-    value: 1
-  - key: 107
-    index: 0
-    value: -1
-  - key: 106
-    index: 1
-    value: 1
-  - key: 108
-    index: 1
-    value: -1
-  - key: 97
-    index: 2
-    value: -1
-  - key: 100
-    index: 2
-    value: 1
-  discretePlayerActions:
-  - key: 0
-    value: 0
-  - key: 0
-    value: 0
-  - key: 0
-    value: 0
-  - key: 0
-    value: 0
-  - key: 0
-    value: 0
-  - key: 0
-    value: 0
-  defaultAction: 0
-  brain: {fileID: 174605309}
 --- !u!1 &1532962581
 GameObject:
   m_ObjectHideFlags: 0
@@ -1588,6 +1542,52 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.942806, y: 0.94280624, z: 0.018644005}
   m_Center: {x: -0.0017440021, y: -0.000000998378, z: 0.00004209253}
+--- !u!114 &1608865895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  continuousPlayerActions:
+  - key: 105
+    index: 0
+    value: 1
+  - key: 107
+    index: 0
+    value: -1
+  - key: 106
+    index: 1
+    value: 1
+  - key: 108
+    index: 1
+    value: -1
+  - key: 97
+    index: 2
+    value: -1
+  - key: 100
+    index: 2
+    value: 1
+  discretePlayerActions:
+  - key: 0
+    value: 0
+  - key: 0
+    value: 0
+  - key: 0
+    value: 0
+  - key: 0
+    value: 0
+  - key: 0
+    value: 0
+  - key: 0
+    value: 0
+  defaultAction: 0
+  brain: {fileID: 174605309}
 --- !u!1 &1625096675
 GameObject:
   m_ObjectHideFlags: 0
@@ -2114,7 +2114,7 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4364368, guid: 0018a0d5fcd38d34d81764846a43c4bd, type: 2}
---- !u!114 &2066339913
+--- !u!114 &1975964214
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -2123,7 +2123,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   broadcast: 1
   brain: {fileID: 0}
