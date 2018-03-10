@@ -1,18 +1,34 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/ML-Agents/Template/Scripts/TemplateAcademy.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/StateFinder.cs">
     <Files>
-      <File FileName="Assets/BasicControl.cs" Line="35" Column="39" />
-      <File FileName="Assets/DroneMovementScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/PID.cs" Line="1" Column="1" />
-      <File FileName="Assets/CameraFollowScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Motors/Motor.cs" Line="13" Column="33" />
-      <File FileName="Assets/BasicGyro.cs" Line="1" Column="1" />
+      <File FileName="Assets/BasicControl.cs" Line="39" Column="34" />
+      <File FileName="Assets/DroneMovementScript.cs" Line="1" Column="6" />
+      <File FileName="Assets/PID.cs" Line="5" Column="13" />
+      <File FileName="Assets/Motors/Motor.cs" Line="1" Column="6" />
+      <File FileName="Assets/BasicGyro.cs" Line="4" Column="14" />
       <File FileName="Assets/ComputerModule.cs" Line="1" Column="1" />
-      <File FileName="Assets/MaterialSetter.cs" Line="1" Column="1" />
       <File FileName="Assets/Camera/CameraLookAt.cs" Line="15" Column="22" />
-      <File FileName="Assets/ML-Agents/Template/Scripts/TemplateAcademy.cs" Line="1" Column="1" />
+      <File FileName="Assets/Controller/Controller.cs" Line="37" Column="18" />
+      <File FileName="Assets/CubeControl.cs" Line="61" Column="75" />
+      <File FileName="Assets/StateFinder.cs" Line="37" Column="52" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="UnityDroneSim" expanded="True">
+            <Node name="Assembly-CSharp" expanded="True">
+              <Node name="StateFinder.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State name="__root__">
+          <Node name="UnityDroneSim" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -360,11 +360,11 @@ MonoBehaviour:
     stateSpaceType: 1
   brainType: 0
   CoreBrains:
-  - {fileID: 204448638}
-  - {fileID: 1164150027}
-  - {fileID: 1708872356}
-  instanceID: -23214
---- !u!114 &204448638
+  - {fileID: 2004922360}
+  - {fileID: 781346251}
+  - {fileID: 343926294}
+  instanceID: 10798
+--- !u!114 &343926294
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -372,31 +372,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
-  m_Name: (Clone)
+  m_Script: {fileID: 11500000, guid: 35813a1be64e144f887d7d5f15b963fa, type: 3}
+  m_Name: (Clone)(Clone)
   m_EditorClassIdentifier: 
-  broadcast: 1
-  continuousPlayerActions:
-  - key: 105
-    index: 0
-    value: 1
-  - key: 107
-    index: 0
-    value: -1
-  - key: 106
-    index: 1
-    value: 1
-  - key: 108
-    index: 1
-    value: -1
-  - key: 97
-    index: 2
-    value: -1
-  - key: 100
-    index: 2
-    value: 1
-  discretePlayerActions: []
-  defaultAction: 0
   brain: {fileID: 174605309}
 --- !u!1 &408562658
 GameObject:
@@ -568,6 +546,19 @@ Transform:
   m_Father: {fileID: 2109704948}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &781346251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
+  m_Name: (Clone)(Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  brain: {fileID: 0}
 --- !u!1 &976428326
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,19 +907,114 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1144290322}
   m_Mesh: {fileID: 4300010, guid: 22aea0a14c26b414f868edb470c48f88, type: 3}
---- !u!114 &1164150027
+--- !u!1 &1224923957
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1224923963}
+  - component: {fileID: 1224923962}
+  - component: {fileID: 1224923961}
+  - component: {fileID: 1224923960}
+  - component: {fileID: 1224923959}
+  - component: {fileID: 1224923958}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1224923958
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1224923957}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
-  m_Name: (Clone)
+  m_Script: {fileID: 11500000, guid: 8461d807f47fe466ba72e46cecc08fdb, type: 3}
+  m_Name: 
   m_EditorClassIdentifier: 
-  broadcast: 1
-  brain: {fileID: 0}
+--- !u!114 &1224923959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1224923957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d8082f24468444bb5b50bf226e75bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!23 &1224923960
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1224923957}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!65 &1224923961
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1224923957}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1224923962
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1224923957}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1224923963
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1224923957}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.4294772, y: 5.7716703, z: -6.29}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1317132332
 GameObject:
   m_ObjectHideFlags: 0
@@ -1314,18 +1400,6 @@ MonoBehaviour:
   Mass: 0
   mainController: {fileID: 992045943}
   Propeller: {fileID: 1625096675}
---- !u!114 &1708872356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35813a1be64e144f887d7d5f15b963fa, type: 3}
-  m_Name: (Clone)
-  m_EditorClassIdentifier: 
-  brain: {fileID: 174605309}
 --- !u!1 &1714048014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1776,6 +1850,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 992045941}
   Drone: {fileID: 992045940}
+--- !u!114 &2004922360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
+  m_Name: (Clone)(Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  continuousPlayerActions:
+  - key: 105
+    index: 0
+    value: 1
+  - key: 107
+    index: 0
+    value: -1
+  - key: 106
+    index: 1
+    value: 1
+  - key: 108
+    index: 1
+    value: -1
+  - key: 97
+    index: 2
+    value: -1
+  - key: 100
+    index: 2
+    value: 1
+  discretePlayerActions: []
+  defaultAction: 0
+  brain: {fileID: 174605309}
 --- !u!1 &2109704947
 GameObject:
   m_ObjectHideFlags: 0
