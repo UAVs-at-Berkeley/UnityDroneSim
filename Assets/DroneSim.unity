@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27de840379ac4b24ca838e9da53b8316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAgentControl: 0
+  isAgentControl: 1
   Throttle: 0
   Yaw: 0
   Pitch: 0
@@ -659,7 +659,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 447478845}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!124 &447478848
 Behaviour:
   m_ObjectHideFlags: 0
@@ -1443,7 +1443,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1562327824}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!124 &1562327827
 Behaviour:
   m_ObjectHideFlags: 0
@@ -2039,7 +2039,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1840577277}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!124 &1840577281
 Behaviour:
   m_ObjectHideFlags: 0
