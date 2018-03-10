@@ -14,26 +14,28 @@ public class StateFinder : MonoBehaviour {
 	public Vector3 Inertia;
 	public float Mass;
 
-	public void GetState(Transform transform) {
-		float Pitch = transform.eulerAngles.x;
+	public CubeControl cc; // linked externally
+
+	public void GetState() {
+		float Pitch = cc.transform.eulerAngles.x;
 		Pitch = (Pitch > 180) ? Pitch - 360 : Pitch;
-		Pitch = Pitch / 180 * 3.1416; // Convert to radians
+		Pitch = Pitch / 180.0f * 3.1416f; // Convert to radians
 
-		float Roll = transform.eulerAngles.z;
-		Roll = (Roll > 180) ? Roll - 360 : Roll;
-		Roll = Roll / 180 * 3.1416; // Convert to radians
+		float Roll = cc.transform.eulerAngles.z;
+		Roll = (Roll > 180.0f) ? Roll - 360.0f : Roll;
+		Roll = Roll / 180.0f * 3.1416f; // Convert to radians
 
-		float Yaw = transform.eulerAngles.y;
-		Yaw = (Yaw > 180) ? Yaw - 360 : Yaw;
-		Yaw = Yaw / 180 * 3.1416; // Convert to radians
+		float Yaw = cc.transform.eulerAngles.y;
+		Yaw = (Yaw > 180.0f) ? Yaw - 360.0f : Yaw;
+		Yaw = Yaw / 180.0f * 3.1416f; // Convert to radians
 
-		Altitude = transform.position.y;
+		Altitude = cc.transform.position.y;
 
-		Angles = Vector3 (Pitch, Yaw, Roll);
-		VelocityVector = transform.GetComponent<Rigidbody> ().velocity;
-		AngularVelocityVector = transform.GetComponent<Rigidbody> ().angularVelocity;
+		Angles = new Vector3 (Pitch, Yaw, Roll);
+		VelocityVector = cc.transform.GetComponent<Rigidbody> ().velocity;
+		AngularVelocityVector = cc.transform.GetComponent<Rigidbody> ().angularVelocity;
 
-		Inertia = transform.GetComponent<Rigidbody> ().inertiaTensor;
-		Mass = transform.GetComponent<Rigidbody> ().mass;
+		Inertia = cc.transform.GetComponent<Rigidbody> ().inertiaTensor;
+		Mass = cc.transform.GetComponent<Rigidbody> ().mass;
 	}
 }
