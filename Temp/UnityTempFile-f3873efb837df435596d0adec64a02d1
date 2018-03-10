@@ -188,6 +188,7 @@
 'Assets/CubeControl.cs'
 'Assets/DroneContinuousMovement.cs'
 'Assets/DroneMovementScript.cs'
+'Assets/InputControl.cs'
 'Assets/MaterialSetter.cs'
 'Assets/ML-Agents/Examples/3DBall/Scripts/Ball3DAcademy.cs'
 'Assets/ML-Agents/Examples/3DBall/Scripts/Ball3DAgent.cs'

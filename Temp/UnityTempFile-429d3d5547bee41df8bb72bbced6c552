@@ -93,6 +93,7 @@
 -define:UNITY_2017
 -define:PLATFORM_ARCH_64
 -define:UNITY_64
+-define:UNITY_ANALYTICS
 -define:ENABLE_AUDIO
 -define:ENABLE_CACHING
 -define:ENABLE_CLOTH
@@ -187,6 +188,7 @@
 'Assets/CubeControl.cs'
 'Assets/DroneContinuousMovement.cs'
 'Assets/DroneMovementScript.cs'
+'Assets/InputControl.cs'
 'Assets/MaterialSetter.cs'
 'Assets/ML-Agents/Examples/3DBall/Scripts/Ball3DAcademy.cs'
 'Assets/ML-Agents/Examples/3DBall/Scripts/Ball3DAgent.cs'

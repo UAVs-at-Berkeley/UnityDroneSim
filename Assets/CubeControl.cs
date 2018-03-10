@@ -39,6 +39,7 @@ public class CubeControl : MonoBehaviour {
 		Vector3 velocityError = state.VelocityVector - desiredVelocity;
 
 		Vector3 desiredAcceleration = velocityError * -1.0f / time_constant_acceleration;
+		Debug.Log (desiredAcceleration);
 
 		Vector3 desiredTheta = new Vector3 (desiredAcceleration.z / gravity, 0.0f, -desiredAcceleration.x / gravity);
 		if (desiredTheta.x > max_pitch) {
@@ -58,11 +59,15 @@ public class CubeControl : MonoBehaviour {
 		float desiredThrust = (gravity + desiredAcceleration.y) / (Mathf.Cos (state.Angles.z) * Mathf.Cos (state.Angles.x));
 
 		Vector3 desiredTorque = Vector3.Scale (desiredAlpha, state.Inertia);
+//		Vector3 desiredAccel = new Vector3 (0.0f, desiredThrust, 0.0f);
 		Vector3 desiredForce = new Vector3 (0.0f, desiredThrust * state.Mass, 0.0f);
 
 
 		Rigidbody rb = GetComponent<Rigidbody>();
-		rb.AddTorque (desiredTorque);
-		rb.AddForce (desiredForce, ForceMode.Impulse);
+//		Debug.Log (desiredThrust);
+//		Debug.Log (desiredForce);
+
+		rb.AddTorque (desiredTorque, ForceMode.Acceleration);
+		rb.AddForce (desiredForce , ForceMode.Acceleration);
 	}
 }

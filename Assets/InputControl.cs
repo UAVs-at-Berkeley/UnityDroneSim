@@ -19,8 +19,10 @@ public class InputControl : MonoBehaviour {
 		cc.desired_vx = Input.GetAxisRaw ("Vertical");
 		cc.desired_vy = Input.GetAxisRaw ("Horizontal");
 		abs_yaw += Input.GetAxisRaw ("Yaw") * 0.01f;
-		abs_yaw = abs_yaw % 360.0f;
+		abs_yaw = abs_yaw % 1.0f;
 		abs_height += Input.GetAxisRaw("Throttle") * 0.01f;
+
+		Debug.Log (abs_yaw);
 
 		cc.desired_yaw = abs_yaw;
 		cc.desired_height = abs_height;
