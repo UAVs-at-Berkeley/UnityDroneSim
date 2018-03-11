@@ -51,16 +51,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BasicControl.cs" />
-     <Compile Include="Assets\BasicGyro.cs" />
+     <Compile Include="Assets\Camera\CameraFollowScript.cs" />
      <Compile Include="Assets\Camera\CameraLookAt.cs" />
      <Compile Include="Assets\Camera\FPVCameraScript.cs" />
-     <Compile Include="Assets\CameraFollowScript.cs" />
-     <Compile Include="Assets\ComputerModule.cs" />
-     <Compile Include="Assets\Controller\Controller.cs" />
-     <Compile Include="Assets\DroneContinuousMovement.cs" />
-     <Compile Include="Assets\DroneMovementScript.cs" />
-     <Compile Include="Assets\MaterialSetter.cs" />
      <Compile Include="Assets\ML-Agents\Examples\3DBall\Scripts\Ball3DAcademy.cs" />
      <Compile Include="Assets\ML-Agents\Examples\3DBall\Scripts\Ball3DAgent.cs" />
      <Compile Include="Assets\ML-Agents\Examples\3DBall\Scripts\Ball3DDecision.cs" />
@@ -109,7 +102,6 @@
      <Compile Include="Assets\ML-Agents\Template\Scripts\DroneAcademy.cs" />
      <Compile Include="Assets\ML-Agents\Template\Scripts\DroneAgent.cs" />
      <Compile Include="Assets\ML-Agents\Template\Scripts\TemplateDecision.cs" />
-     <Compile Include="Assets\Motors\Motor.cs" />
      <Compile Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Scripts\Antialiasing.cs" />
      <Compile Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Scripts\Bloom.cs" />
      <Compile Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Scripts\BloomAndFlares.cs" />
@@ -148,7 +140,17 @@
      <Compile Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Scripts\Twirl.cs" />
      <Compile Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Scripts\VignetteAndChromaticAberration.cs" />
      <Compile Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
-     <Compile Include="Assets\PID.cs" />
+     <Compile Include="Assets\RPY PID Control\BasicControl.cs" />
+     <Compile Include="Assets\RPY PID Control\BasicGyro.cs" />
+     <Compile Include="Assets\RPY PID Control\ComputerModule.cs" />
+     <Compile Include="Assets\RPY PID Control\Controller\Controller.cs" />
+     <Compile Include="Assets\RPY PID Control\Motors\Motor.cs" />
+     <Compile Include="Assets\RPY PID Control\PID.cs" />
+     <Compile Include="Assets\Simple Control\DroneContinuousMovement.cs" />
+     <Compile Include="Assets\Simple Control\DroneMovementScript.cs" />
+     <Compile Include="Assets\VelocityControl\CubeControl.cs" />
+     <Compile Include="Assets\VelocityControl\InputControl.cs" />
+     <Compile Include="Assets\VelocityControl\StateFinder.cs" />
      <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
