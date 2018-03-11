@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InputControl : MonoBehaviour {
 
-	public CubeControl cc;
+	public VelocityControl vc;
 
 	private float abs_height = 1;
 
@@ -15,14 +15,14 @@ public class InputControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		cc.desired_vx = Input.GetAxisRaw ("Pitch")*2.0f;
+		vc.desired_vx = Input.GetAxisRaw ("Pitch")*2.0f;
 //		print(Input.GetAxisRaw("Vertical"));
-		cc.desired_vy = Input.GetAxisRaw ("Roll")*2.0f;
-		cc.desired_yaw = Input.GetAxisRaw ("Yaw");
+		vc.desired_vy = Input.GetAxisRaw ("Roll")*2.0f;
+		vc.desired_yaw = Input.GetAxisRaw ("Yaw");
 		abs_height += Input.GetAxisRaw("Throttle") * 0.01f;
 
-		Debug.Log (cc.desired_yaw);
+		Debug.Log (vc.desired_yaw);
 
-		cc.desired_height = abs_height;
+		vc.desired_height = abs_height;
 	}
 }

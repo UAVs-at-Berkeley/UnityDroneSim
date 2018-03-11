@@ -121,7 +121,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 9548284}
-  - component: {fileID: 9548285}
   m_Layer: 0
   m_Name: MotorFR
   m_TagString: Untagged
@@ -143,28 +142,6 @@ Transform:
   m_Father: {fileID: 992045941}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9548285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 9548283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00b0bcdc528535e4081e2a3bd80d7c3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UpForce: 0
-  SideForce: 0
-  Power: 0.5
-  ExceedForce: 0
-  YawFactor: 1.5
-  InvertDirection: 1
-  PitchFactor: 0.05
-  RollFactor: 0.05
-  Mass: 0
-  mainController: {fileID: 992045943}
-  Propeller: {fileID: 1831658092}
 --- !u!1 &86997188
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,7 +169,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &86997190
 MonoBehaviour:
@@ -202,22 +179,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 86997188}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27de840379ac4b24ca838e9da53b8316, type: 3}
+  m_Script: {fileID: 11500000, guid: ec3b2d78ab3414b538a10156593fb2e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAgentControl: 1
-  Throttle: 0
-  Yaw: 0
-  Pitch: 0
-  Roll: 0
-  ThrottleCommand: Throttle
-  InvertThrottle: 0
-  YawCommand: Yaw
-  InvertYaw: 0
-  PitchCommand: Pitch
-  InvertPitch: 0
-  RollCommand: Roll
-  InvertRoll: 1
+  vc: {fileID: 992045942}
 --- !u!1 &147548691
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,7 +392,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &350675788
 Prefab:
@@ -466,7 +431,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d4f42247e4fd5aa469325fdd13e321b1, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: d4f42247e4fd5aa469325fdd13e321b1, type: 3}
       propertyPath: m_Name
@@ -524,7 +489,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 407960, guid: 0018a0d5fcd38d34d81764846a43c4bd, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2378382, guid: 0018a0d5fcd38d34d81764846a43c4bd, type: 2}
       propertyPath: m_SelectedEditorRenderState
@@ -608,7 +573,7 @@ Transform:
   m_Children:
   - {fileID: 174605308}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &447478845
 GameObject:
@@ -901,6 +866,54 @@ MonoBehaviour:
   m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   brain: {fileID: 174605309}
+--- !u!1 &941555589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 941555591}
+  - component: {fileID: 941555590}
+  m_Layer: 0
+  m_Name: StateFinder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &941555590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 941555589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a014fa8e95f48f1adf17c722752c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Altitude: 0
+  Angles: {x: 0, y: 0, z: 0}
+  VelocityVector: {x: 0, y: 0, z: 0}
+  RelativeVelocityVector: {x: 0, y: 0, z: 0}
+  AngularVelocityVector: {x: 0, y: 0, z: 0}
+  Inertia: {x: 0, y: 0, z: 0}
+  Mass: 0
+  vc: {fileID: 992045942}
+--- !u!4 &941555591
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 941555589}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 100}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &976428326
 GameObject:
   m_ObjectHideFlags: 0
@@ -983,7 +996,6 @@ GameObject:
   m_Component:
   - component: {fileID: 992045941}
   - component: {fileID: 992045944}
-  - component: {fileID: 992045943}
   - component: {fileID: 992045942}
   - component: {fileID: 992045946}
   - component: {fileID: 992045945}
@@ -1013,7 +1025,7 @@ Transform:
   - {fileID: 2109704948}
   - {fileID: 447478846}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &992045942
 MonoBehaviour:
@@ -1023,53 +1035,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 992045940}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adc883a9160694fedb069617e016e2a9, type: 3}
+  m_Script: {fileID: 11500000, guid: f9fd9cf0a203549e98e27622302c103a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PitchLimit: 30
-  RollLimit: 30
-  PidThrottle:
-    pFactor: 0.5
-    iFactor: 0
-    dFactor: 0
-  PidPitch:
-    pFactor: 0.04
-    iFactor: 0
-    dFactor: 0.005
-  PidRoll:
-    pFactor: 0.04
-    iFactor: 0
-    dFactor: 0.005
-  Gyro:
-    Pitch: 0
-    Roll: 0
-    Yaw: 0
-    Altitude: 0
-    VelocityVector: {x: 0, y: 0, z: 0}
-    VelocityScalar: 0
-  PitchCorrection: 0
-  RollCorrection: 0
-  HeightCorrection: 0
---- !u!114 &992045943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 992045940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afbe86db0a3dd4771a0c2f9cbd74ceb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Controller: {fileID: 86997190}
-  ThrottleIncrease: 5
-  Motors:
-  - {fileID: 1317132334}
-  - {fileID: 9548285}
-  - {fileID: 1630861083}
-  - {fileID: 1109786286}
-  ThrottleValue: 0
-  Computer: {fileID: 992045942}
+  state: {fileID: 941555590}
+  desired_vx: 0
+  desired_vy: 0
+  desired_yaw: 0
+  desired_height: 1
 --- !u!54 &992045944
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1077,7 +1050,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 992045940}
   serializedVersion: 2
-  m_Mass: 0.5
+  m_Mass: 3
   m_Drag: 0.3
   m_AngularDrag: 5
   m_UseGravity: 1
@@ -1123,7 +1096,7 @@ MonoBehaviour:
   agentStoredAction: []
   memory: []
   id: 0
-  basicControl: {fileID: 992045943}
+  basicControl: {fileID: 0}
   Target: {fileID: 2099008716}
   Scale: 1
 --- !u!154 &992045947
@@ -1144,7 +1117,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1109786285}
-  - component: {fileID: 1109786286}
   m_Layer: 0
   m_Name: MotorRL
   m_TagString: Untagged
@@ -1166,28 +1138,6 @@ Transform:
   m_Father: {fileID: 992045941}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1109786286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1109786284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00b0bcdc528535e4081e2a3bd80d7c3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UpForce: 0
-  SideForce: 0
-  Power: 0.5
-  ExceedForce: 0
-  YawFactor: 1.5
-  InvertDirection: 1
-  PitchFactor: -0.05
-  RollFactor: -0.05
-  Mass: 0
-  mainController: {fileID: 992045943}
-  Propeller: {fileID: 1601863134}
 --- !u!1 &1144290322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1269,7 +1219,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1317132333}
-  - component: {fileID: 1317132334}
   m_Layer: 0
   m_Name: MotorFL
   m_TagString: Untagged
@@ -1291,28 +1240,6 @@ Transform:
   m_Father: {fileID: 992045941}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1317132334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1317132332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00b0bcdc528535e4081e2a3bd80d7c3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UpForce: 0
-  SideForce: 0
-  Power: 0.5
-  ExceedForce: 0
-  YawFactor: 1.5
-  InvertDirection: 0
-  PitchFactor: 0.05
-  RollFactor: -0.05
-  Mass: 0
-  mainController: {fileID: 992045943}
-  Propeller: {fileID: 147548691}
 --- !u!1 &1438329177 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 112922, guid: 0018a0d5fcd38d34d81764846a43c4bd, type: 2}
@@ -1389,7 +1316,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!81 &1562327826
 AudioListener:
@@ -1682,7 +1609,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1630861082}
-  - component: {fileID: 1630861083}
   m_Layer: 0
   m_Name: MotorRR
   m_TagString: Untagged
@@ -1704,28 +1630,6 @@ Transform:
   m_Father: {fileID: 992045941}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1630861083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1630861081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00b0bcdc528535e4081e2a3bd80d7c3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UpForce: 0
-  SideForce: 0
-  Power: 0.5
-  ExceedForce: 0
-  YawFactor: 1.5
-  InvertDirection: 0
-  PitchFactor: -0.05
-  RollFactor: 0.05
-  Mass: 0
-  mainController: {fileID: 992045943}
-  Propeller: {fileID: 1625096675}
 --- !u!1 &1804962776
 GameObject:
   m_ObjectHideFlags: 0
@@ -1968,7 +1872,7 @@ Transform:
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1839432561
 Animator:
@@ -2018,7 +1922,7 @@ Transform:
   m_LocalScale: {x: 100, y: 100.000015, z: 100.000015}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 17.883001, y: 0, z: 0}
 --- !u!114 &1840577279
 MonoBehaviour:
@@ -2154,7 +2058,7 @@ Transform:
   m_Children:
   - {fileID: 561975701}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2109704947
 GameObject:
@@ -2166,9 +2070,6 @@ GameObject:
   - component: {fileID: 2109704948}
   - component: {fileID: 2109704953}
   - component: {fileID: 2109704952}
-  - component: {fileID: 2109704951}
-  - component: {fileID: 2109704950}
-  - component: {fileID: 2109704949}
   m_Layer: 0
   m_Name: Drone
   m_TagString: Untagged
@@ -2193,53 +2094,6 @@ Transform:
   m_Father: {fileID: 992045941}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &2109704949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2109704947}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17985ae1d5c2741169cc96ad6aad8aae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m: {fileID: 0}
-  color: {r: 0, g: 0, b: 1, a: 1}
-  rend: {fileID: 0}
---- !u!114 &2109704950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2109704947}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4478246e38f54552aafc8ac39b998ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upForce: 0
-  currentYRotation: 0
---- !u!114 &2109704951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2109704947}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afbe86db0a3dd4771a0c2f9cbd74ceb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Controller: {fileID: 0}
-  ThrottleIncrease: 0
-  Motors:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  ThrottleValue: 0
-  Computer: {fileID: 0}
 --- !u!23 &2109704952
 MeshRenderer:
   m_ObjectHideFlags: 0

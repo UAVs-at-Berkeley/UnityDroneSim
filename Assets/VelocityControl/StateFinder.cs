@@ -14,30 +14,32 @@ public class StateFinder : MonoBehaviour {
 	public Vector3 Inertia;
 	public float Mass;
 
-	public CubeControl cc; // linked externally
+	public VelocityControl vc; // linked externally
 
 	public void GetState() {
-		float Pitch = cc.transform.eulerAngles.x;
+		// relative to object
+
+		float Pitch = vc.transform.eulerAngles.x;
 		Pitch = (Pitch > 180) ? Pitch - 360 : Pitch;
 		Pitch = Pitch / 180.0f * 3.1416f; // Convert to radians
 
-		float Roll = cc.transform.eulerAngles.z;
+		float Roll = vc.transform.eulerAngles.z;
 		Roll = (Roll > 180.0f) ? Roll - 360.0f : Roll;
 		Roll = Roll / 180.0f * 3.1416f; // Convert to radians
 
-		float Yaw = cc.transform.eulerAngles.y;
+		float Yaw = vc.transform.eulerAngles.y;
 		Yaw = (Yaw > 180.0f) ? Yaw - 360.0f : Yaw;
 		Yaw = Yaw / 180.0f * 3.1416f; // Convert to radians
 
-		Altitude = cc.transform.position.y;
+		Altitude = vc.transform.position.y;
 
 		Angles = new Vector3 (Pitch, Yaw, Roll);
-		VelocityVector = cc.transform.GetComponent<Rigidbody> ().velocity;
-		AngularVelocityVector = cc.transform.GetComponent<Rigidbody> ().angularVelocity;
+		// in global reference frame, not good! we want yaw to change this
+		VelocityVector = vc.transform.GetComponent<Rigidbody> ().velocity;
+		AngularVelocityVector = vc.transform.GetComponent<Rigidbody> ().angularVelocity;
 
-		Inertia = cc.transform.GetComponent<Rigidbody> ().inertiaTensor;
-		Mass = cc.transform.GetComponent<Rigidbody> ().mass;
+		Inertia = vc.transform.GetComponent<Rigidbody> ().inertiaTensor;
+		Mass = vc.transform.GetComponent<Rigidbody> ().mass;
 
-//		print(cc.
 	}
 }

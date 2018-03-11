@@ -148,9 +148,9 @@
      <Compile Include="Assets\RPY PID Control\PID.cs" />
      <Compile Include="Assets\Simple Control\DroneContinuousMovement.cs" />
      <Compile Include="Assets\Simple Control\DroneMovementScript.cs" />
-     <Compile Include="Assets\VelocityControl\CubeControl.cs" />
      <Compile Include="Assets\VelocityControl\InputControl.cs" />
      <Compile Include="Assets\VelocityControl\StateFinder.cs" />
+     <Compile Include="Assets\VelocityControl\VelocityControl.cs" />
      <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
