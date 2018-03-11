@@ -6,7 +6,6 @@ public class InputControl : MonoBehaviour {
 
 	public CubeControl cc;
 
-	private float abs_yaw;
 	private float abs_height = 1;
 
 	// Use this for initialization
@@ -16,15 +15,14 @@ public class InputControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		cc.desired_vx = Input.GetAxisRaw ("Vertical");
-		cc.desired_vy = Input.GetAxisRaw ("Horizontal");
-		abs_yaw += Input.GetAxisRaw ("Yaw") * 0.01f;
-		abs_yaw = abs_yaw % 1.0f;
+		cc.desired_vx = Input.GetAxisRaw ("Pitch")*2.0f;
+//		print(Input.GetAxisRaw("Vertical"));
+		cc.desired_vy = Input.GetAxisRaw ("Roll")*2.0f;
+		cc.desired_yaw = Input.GetAxisRaw ("Yaw");
 		abs_height += Input.GetAxisRaw("Throttle") * 0.01f;
 
-		Debug.Log (abs_yaw);
+		Debug.Log (cc.desired_yaw);
 
-		cc.desired_yaw = abs_yaw;
 		cc.desired_height = abs_height;
 	}
 }

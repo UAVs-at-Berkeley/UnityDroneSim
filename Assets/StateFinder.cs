@@ -37,5 +37,7 @@ public class StateFinder : MonoBehaviour {
 
 		Inertia = cc.transform.GetComponent<Rigidbody> ().inertiaTensor;
 		Mass = cc.transform.GetComponent<Rigidbody> ().mass;
+
+//		print(cc.
 	}
 }
