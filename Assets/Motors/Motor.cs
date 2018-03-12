@@ -52,4 +52,10 @@ public class Motor : MonoBehaviour {
 
 		return finalValue * (YawFactor);
 	}
+
+
+	public void Reset() {
+		UpForce = 0.0f;
+		SideForce = 0.0f;
+	}
 }

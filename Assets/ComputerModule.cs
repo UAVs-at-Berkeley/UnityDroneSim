@@ -31,11 +31,21 @@ public class ComputerModule : MonoBehaviour
 		PitchCorrection = PidPitch.Update(ControlPitch * PitchLimit, Gyro.Pitch, Time.deltaTime);
 		RollCorrection = PidRoll.Update(Gyro.Roll, ControlRoll * RollLimit, Time.deltaTime);
         HeightCorrection = PidThrottle.Update(ControlHeight, Gyro.VelocityVector.y, Time.deltaTime);
-
     }
 
     public void UpdateGyro()
     {
         Gyro.UpdateGyro(transform);
     }
+
+	public void Reset() {
+		PitchCorrection = 0.0f;
+		RollCorrection = 0.0f;
+		HeightCorrection = 0.0f;
+
+		Gyro.Reset ();
+		PidPitch.Reset ();
+		PidRoll.Reset ();
+		PidThrottle.Reset ();
+	}
 }

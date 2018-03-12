@@ -28,4 +28,11 @@ public class BasicGyro {
         VelocityVector = transform.GetComponent<Rigidbody>().velocity;
         VelocityScalar = VelocityVector.magnitude;
 	}
+
+	public void Reset() {
+		Pitch = 0.0f;
+		Roll = 0.0f;
+		Yaw = 0.0f;
+		Altitude = 1.0f;
+	}
 }

@@ -53,4 +53,17 @@ public class BasicControl : MonoBehaviour {
                 motor.UpdatePropeller(1200.0f);
         }
     }
+
+
+	public void Reset() 
+	{
+		Rigidbody rb = GetComponent<Rigidbody>();
+		rb.velocity = Vector3.zero;
+		rb.angularVelocity = Vector3.zero;
+		Computer.Reset ();
+		foreach (Motor motor in Motors)
+		{
+			motor.Reset ();
+		}
+	}
 }

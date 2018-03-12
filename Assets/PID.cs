@@ -23,4 +23,10 @@ public class PID {
 			finalPID = 0;
 		return finalPID;
 	}
+
+	public void Reset() {
+		integral = 0.0f;
+		lastError = 0.0f;
+	}
+		
 }
