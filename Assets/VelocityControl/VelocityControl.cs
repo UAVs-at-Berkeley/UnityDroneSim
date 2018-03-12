@@ -90,6 +90,8 @@ public class VelocityControl : MonoBehaviour {
 		Vector3 desiredForce = new Vector3 (0.0f, desiredThrust * state.Mass, 0.0f);
 //		Vector3 desiredForce = transform.up * desiredThrust * state.Mass;
 
+//		Debug.Log(Vector3.Dot(desiredTorque, transform.forward));
+
 
 		Rigidbody rb = GetComponent<Rigidbody>();
 //		Debug.Log (desiredTorque);

@@ -34,7 +34,6 @@ public class StateFinder : MonoBehaviour {
 		Altitude = vc.transform.position.y;
 
 		Angles = new Vector3 (Pitch, Yaw, Roll);
-		// in global reference frame, not good! we want yaw to change this
 		VelocityVector = vc.transform.GetComponent<Rigidbody> ().velocity;
 		AngularVelocityVector = vc.transform.GetComponent<Rigidbody> ().angularVelocity;
 
