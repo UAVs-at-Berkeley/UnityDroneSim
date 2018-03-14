@@ -14,30 +14,46 @@ public class StateFinder : MonoBehaviour {
 	public Vector3 Inertia;
 	public float Mass;
 
+	private bool flag = true; // Only get mass and inertia once 
+
 	public CubeControl cc; // linked externally
 
 	public void GetState() {
-		float Pitch = cc.transform.eulerAngles.x;
-		Pitch = (Pitch > 180) ? Pitch - 360 : Pitch;
-		Pitch = Pitch / 180.0f * 3.1416f; // Convert to radians
 
-		float Roll = cc.transform.eulerAngles.z;
-		Roll = (Roll > 180.0f) ? Roll - 360.0f : Roll;
-		Roll = Roll / 180.0f * 3.1416f; // Convert to radians
-
+		Vector3 worldDown = cc.transform.InverseTransformDirection (Vector3.down);
+		float Pitch = worldDown.z; // Small angle approximation
+		float Roll = -worldDown.x; // Small angle approximation
 		float Yaw = cc.transform.eulerAngles.y;
-		Yaw = (Yaw > 180.0f) ? Yaw - 360.0f : Yaw;
-		Yaw = Yaw / 180.0f * 3.1416f; // Convert to radians
+
+//		float Pitch = cc.transform.eulerAngles.x;
+//		Pitch = (Pitch > 180) ? Pitch - 360 : Pitch;
+//		Pitch = Pitch / 180.0f * 3.1416f; // Convert to radians
+//
+//		float Roll = cc.transform.eulerAngles.z;
+//		Roll = (Roll > 180.0f) ? Roll - 360.0f : Roll;
+//		Roll = Roll / 180.0f * 3.1416f; // Convert to radians
+//
+//		float Yaw = cc.transform.eulerAngles.y;
+//		Yaw = (Yaw > 180.0f) ? Yaw - 360.0f : Yaw;
+//		Yaw = Yaw / 180.0f * 3.1416f; // Convert to radians
+
+//		Altitude = cc.transform.position.y;
+//
+		Angles = new Vector3 (Pitch, Yaw, Roll);
 
 		Altitude = cc.transform.position.y;
 
-		Angles = new Vector3 (Pitch, Yaw, Roll);
 		VelocityVector = cc.transform.GetComponent<Rigidbody> ().velocity;
+		VelocityVector = cc.transform.InverseTransformDirection (VelocityVector);
+
 		AngularVelocityVector = cc.transform.GetComponent<Rigidbody> ().angularVelocity;
+		AngularVelocityVector = cc.transform.InverseTransformDirection (AngularVelocityVector);
 
-		Inertia = cc.transform.GetComponent<Rigidbody> ().inertiaTensor;
-		Mass = cc.transform.GetComponent<Rigidbody> ().mass;
+		if (flag) {
+			Inertia = cc.transform.GetComponent<Rigidbody> ().inertiaTensor;
+			Mass = cc.transform.GetComponent<Rigidbody> ().mass;
+			flag = false;
+		}
 
-//		print(cc.
 	}
 }

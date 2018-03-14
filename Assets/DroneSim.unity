@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -556,7 +556,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 447478845}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!124 &447478848
 Behaviour:
   m_ObjectHideFlags: 0
@@ -698,13 +698,13 @@ Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 22aea0a14c26b414f868edb470c48f88, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 976428326}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7057147, y: 0.044349145, z: -0.044349138, w: 0.70571464}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 2.6437135, y: 2.6437135, z: 2.6437135}
   m_Children: []
   m_Father: {fileID: 2109704948}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -97.19199, y: -90, z: 89.99999}
 --- !u!23 &976428328
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -973,13 +973,13 @@ Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 22aea0a14c26b414f868edb470c48f88, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1144290322}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0.7071068, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0.0030355453}
   m_LocalScale: {x: 0.30000022, y: 0.3000001, z: 0.3000001}
   m_Children: []
   m_Father: {fileID: 992045941}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: -180}
 --- !u!23 &1144290324
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1832,13 +1832,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1839432555}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
 --- !u!65 &1839432560
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1920,7 +1920,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1840577277}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!124 &1840577281
 Behaviour:
   m_ObjectHideFlags: 0
