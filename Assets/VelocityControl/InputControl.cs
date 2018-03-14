@@ -15,13 +15,10 @@ public class InputControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		vc.desired_vx = Input.GetAxisRaw ("Pitch")*2.0f;
-//		print(Input.GetAxisRaw("Vertical"));
-		vc.desired_vy = Input.GetAxisRaw ("Roll")*2.0f;
-		vc.desired_yaw = Input.GetAxisRaw ("Yaw");
-		abs_height += Input.GetAxisRaw("Throttle") * 0.01f;
-
-		Debug.Log (vc.desired_yaw);
+		vc.desired_vx = Input.GetAxisRaw ("Pitch")*4.0f;
+		vc.desired_vy = Input.GetAxisRaw ("Roll")*4.0f;
+		vc.desired_yaw = Input.GetAxisRaw ("Yaw")*0.5f;
+		abs_height += Input.GetAxisRaw("Throttle") * 0.1f;
 
 		vc.desired_height = abs_height;
 	}
