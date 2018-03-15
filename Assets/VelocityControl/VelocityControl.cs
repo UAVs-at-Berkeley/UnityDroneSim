@@ -20,9 +20,9 @@ public class VelocityControl : MonoBehaviour {
 	public float desired_vx = 0.0f;
 	public float desired_vy = 0.0f;
 	public float desired_yaw = 0.0f;
-	public float desired_height = 1.0f;
+	public float desired_height = 4.0f;
 
-	
+	private bool wait = false;
 	private bool flag = true;
 
 	// Use this for initialization
@@ -97,5 +97,26 @@ public class VelocityControl : MonoBehaviour {
 		Debug.Log ("Desired Angular Velocity" + desiredOmega);
 		Debug.Log ("Desired Angular Acceleration" + desiredAlpha);
 		Debug.Log ("Desired Torque" + desiredTorque);
+	}
+
+	public void Reset() {
+
+		state.VelocityVector = Vector3.zero;
+		state.AngularVelocityVector = Vector3.zero;
+
+		desired_vx = 0.0f;
+		desired_vy = 0.0f;
+		desired_yaw = 0.0f;
+		desired_height = 4.0f;
+
+		state.Reset ();
+	
+		enabled = true;
+	}
+
+	IEnumerator Waiting(float time) {
+		wait = true;
+		yield return new WaitForSeconds(time);
+		wait = false;
 	}
 }

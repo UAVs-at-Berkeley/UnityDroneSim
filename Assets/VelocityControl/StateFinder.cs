@@ -56,4 +56,14 @@ public class StateFinder : MonoBehaviour {
 		}
 
 	}
+
+	public void Reset() {
+		flag = true;
+		VelocityVector = Vector3.zero;
+		AngularVelocityVector = Vector3.zero;
+		Angles = Vector3.zero;
+		Altitude = 0.0f;
+
+		enabled = true;
+	}
 }
