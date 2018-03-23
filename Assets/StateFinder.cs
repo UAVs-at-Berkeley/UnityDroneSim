@@ -25,20 +25,6 @@ public class StateFinder : MonoBehaviour {
 		float Roll = -worldDown.x; // Small angle approximation
 		float Yaw = cc.transform.eulerAngles.y;
 
-//		float Pitch = cc.transform.eulerAngles.x;
-//		Pitch = (Pitch > 180) ? Pitch - 360 : Pitch;
-//		Pitch = Pitch / 180.0f * 3.1416f; // Convert to radians
-//
-//		float Roll = cc.transform.eulerAngles.z;
-//		Roll = (Roll > 180.0f) ? Roll - 360.0f : Roll;
-//		Roll = Roll / 180.0f * 3.1416f; // Convert to radians
-//
-//		float Yaw = cc.transform.eulerAngles.y;
-//		Yaw = (Yaw > 180.0f) ? Yaw - 360.0f : Yaw;
-//		Yaw = Yaw / 180.0f * 3.1416f; // Convert to radians
-
-//		Altitude = cc.transform.position.y;
-//
 		Angles = new Vector3 (Pitch, Yaw, Roll);
 
 		Altitude = cc.transform.position.y;
