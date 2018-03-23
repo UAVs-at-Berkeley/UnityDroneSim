@@ -19,15 +19,15 @@ df374c01140c2d578bf70cbd60073d1d UnityEngine.Timeline.dll:UnityEngine.Timeline.T
 c08b196716247885d3b27f7f282b2568 Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.ImageEffectBase
 a9aa7589258d70cb3a8ba6729cd5d347 Assembly-CSharp.dll:.TennisAgent
 a30beadf4d109f44144b9a9f42e61cbf Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.BlurOptimized
+4b787d804fefa5673137b01d6cb81f48 Assembly-CSharp.dll:.VelocityControl
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ReacherDecision
 e544c1799932483c86d40a69e7508b10 Assembly-CSharp.dll:.CrawlerAcademy
 23b50ef73e2c1a8a76860d35bcbbf8fc Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.GlobalFog
 daabd8d8800a87cff11f866c4d06a232 Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.ContrastStretch
 31ac2865258ddbc8f82525645ca875c2 Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.VignetteAndChromaticAberration
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Monitor
-b27f8b1a5459e6b5223d10823db33114 Assembly-CSharp.dll:.CameraLookAt
+db636f4eb70a12d7f7da05e49a65cfb8 Assembly-CSharp.dll:.CameraLookAt
 1ad999c1c59cc66b1257b3f9407287bc Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.ColorCorrectionCurves
-af715b81a99db1194f20cf4fbf842cc1 Assembly-CSharp.dll:.MaterialSetter
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 49cd62a578efc0a599b810a2b66cd49c UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -158,6 +158,7 @@ cac5093fb1baf037bd671ecbc6727828 Assembly-CSharp.dll:UnityStandardAssets.ImageEf
 d9a326ee1cb1e73fe2c8448643070f1f Assembly-CSharp.dll:.PushAcademy
 007dda9c894b153f790649a9dd933133 Assembly-CSharp.dll:.BasicAgent
 30db6bf1abfbd17c6cdd1385b9eba6ca Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.DepthOfField
+3536fbadad2f6a6933dc2491d24f7f63 Assembly-CSharp.dll:.InputControl
 1a88c5d992da2735604c2f19402f44ca Assembly-CSharp.dll:.CrawlerAgentConfigurable
 f6fbb33afc8bd390593ba141d5e977f3 Assembly-CSharp.dll:.CoreBrainPlayer
 9beb4bf6c6fbc2b689736d25039828ad Assembly-CSharp.dll:.FPVCameraScript
@@ -188,6 +189,7 @@ e2b50e4e1e5006d87e7ebe8a724e8f6d Assembly-CSharp.dll:UnityStandardAssets.ImageEf
 96d0fbde9fd209878a0a291f82c9bcdd UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
 64eb32cc721b1cc68a91ed57461e188c UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.RemoteTestResultSender
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
+55b91c5852874fd47a0ab198b960b16c Assembly-CSharp.dll:.StateFinder
 058ccfe8f58976b9687a9774540eba22 Assembly-CSharp.dll:.GoalInteract
 63719530d5b7d49ae337bb54479415b5 Assembly-CSharp.dll:.CoreBrainExternal
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
@@ -223,5 +225,5 @@ c94099647040d8c6906d55078ea00819 Assembly-CSharp.dll:.ReacherAgent
 e2a8fd4524fc2a3a236b7e7720b544a6 Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.EdgeDetection
 b3432dfe180f02232d7612fb366593d3 Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.ColorCorrectionLookup
 3ae0dad0b55a80319e1d57c2dce28da7 Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.Tonemapping
-6730effddd867fc0e23bac676733b2c6 Assembly-CSharp.dll:.DroneAgent
+4067c78d6c831174f422ffda3db9d7ae Assembly-CSharp.dll:.DroneAgent
 22dc04f0f3e49cd886fcd5307f532a1e Assembly-CSharp.dll:.Ball3DAgent

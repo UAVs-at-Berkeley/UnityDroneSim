@@ -2,13 +2,8 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/VelocityControl/VelocityControl.cs">
     <Files>
-      <File FileName="Assets/ML-Agents/Template/Scripts/DroneAgent.cs" Line="126" Column="2" />
-      <File FileName="Assets/VelocityControl/VelocityControl.cs" Line="105" Column="46" />
-      <File FileName="Assets/ML-Agents/Scripts/Brain.cs" Line="42" Column="22" />
-      <File FileName="Assets/VelocityControl/StateFinder.cs" Line="63" Column="19" />
-      <File FileName="Assets/Camera/CameraLookAt.cs" Line="23" Column="1" />
-      <File FileName="Assets/Camera/FPVCameraScript.cs" Line="32" Column="43" />
-      <File FileName="Assets/Camera/CameraFollowScript.cs" Line="9" Column="20" />
+      <File FileName="Assets/ML-Agents/Template/Scripts/DroneAgent.cs" Line="104" Column="11" />
+      <File FileName="Assets/VelocityControl/VelocityControl.cs" Line="2" Column="30" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
