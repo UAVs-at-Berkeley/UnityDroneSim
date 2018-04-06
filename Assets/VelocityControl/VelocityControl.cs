@@ -20,7 +20,7 @@ public class VelocityControl : MonoBehaviour {
 	public float desired_vx = 0.0f;
 	public float desired_vy = 0.0f;
 	public float desired_yaw = 0.0f;
-	public float desired_height = 4.0f;
+	public float desired_height = 8.0f;
 
 	private bool wait = false;
 	private bool flag = true;
@@ -34,7 +34,7 @@ public class VelocityControl : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		state.GetState ();
 
 		// NOTE: I'm using stupid vector order (sideways, up, forward) at the end
@@ -107,7 +107,7 @@ public class VelocityControl : MonoBehaviour {
 		desired_vx = 0.0f;
 		desired_vy = 0.0f;
 		desired_yaw = 0.0f;
-		desired_height = 4.0f;
+		desired_height = 8.0f;
 
 		state.Reset ();
 	

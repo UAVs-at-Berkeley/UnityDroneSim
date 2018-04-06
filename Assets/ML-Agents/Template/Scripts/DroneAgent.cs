@@ -94,6 +94,7 @@ public class DroneAgent: Agent {
 		velocityControl.desired_vx = act [0] * 8.0f;
 		velocityControl.desired_vy = act [1] * 8.0f;
 		velocityControl.desired_yaw = act [2] * 360.0f;
+		velocityControl.desired_height = velocityControl.desired_height;
 
 		reward += RewardFunction();
 
