@@ -11,6 +11,10 @@ GameObject:
   - component: {fileID: 19346724}
   - component: {fileID: 3379406}
   - component: {fileID: 2378382}
+  - component: {fileID: 64046182044580842}
+  - component: {fileID: 65121238199927932}
+  - component: {fileID: 135402241730692670}
+  - component: {fileID: 136951920316814768}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -25,8 +29,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 22, y: 0.00000011920929, z: 57.3}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -308,7 +312,7 @@ MonoBehaviour:
   m_Name: Tree Data
   m_EditorClassIdentifier: 
   _uniqueID: 306
-  materialHash: 824571dfc775a2daf81dff2d36a5d784215482368
+  materialHash: ea72277ad5e86717413e8e8febbd6032215482368
   root:
     _uniqueID: 1
     seed: 1234
@@ -9570,3 +9574,54 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 112922}
   m_IsPrefabParent: 1
+--- !u!64 &64046182044580842
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 112922}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4364368}
+--- !u!65 &65121238199927932
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 112922}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 6.9017615, y: 7.4943104, z: 5.21367}
+  m_Center: {x: 0.08076763, y: 3.7471552, z: 0.6766979}
+--- !u!135 &135402241730692670
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 112922}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.8
+  m_Center: {x: 0.08076763, y: 4.5, z: 0.67669797}
+--- !u!136 &136951920316814768
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 112922}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 7.706428
+  m_Direction: 1
+  m_Center: {x: 0.07, y: 3.853214, z: -0.68}
