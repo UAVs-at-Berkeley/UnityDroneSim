@@ -4,7 +4,7 @@
 
 *Project AutoQuad, Spring 2018, UAVs @ Berkeley & Machine Learning @ Berkeley*
 
-![alt text](https://raw.githubusercontent.com/UAVS-at-Berkeley/UnityDroneSim/sim_image.png)
+![alt text](sim_image.png)
 
 ---
 
