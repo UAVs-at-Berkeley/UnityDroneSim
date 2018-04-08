@@ -20,7 +20,9 @@ public class VelocityControl : MonoBehaviour {
 	public float desired_vx = 0.0f;
 	public float desired_vy = 0.0f;
 	public float desired_yaw = 0.0f;
-	public float desired_height = 8.0f;
+	public float desired_height = 4.0f;
+
+	public float initial_height;
 
 	private bool wait = false;
 	private bool flag = true;
@@ -31,6 +33,8 @@ public class VelocityControl : MonoBehaviour {
 		Rigidbody rb = GetComponent<Rigidbody> ();
 		Vector3 desiredForce = new Vector3 (0.0f, gravity * state.Mass, 0.0f);
 		rb.AddForce (desiredForce, ForceMode.Acceleration);
+
+		initial_height = desired_height;
 	}
 
 	// Update is called once per frame
@@ -107,7 +111,7 @@ public class VelocityControl : MonoBehaviour {
 		desired_vx = 0.0f;
 		desired_vy = 0.0f;
 		desired_yaw = 0.0f;
-		desired_height = 8.0f;
+		desired_height = initial_height;
 
 		state.Reset ();
 	

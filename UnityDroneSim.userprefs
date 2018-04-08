@@ -1,12 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/VelocityControl/InputControl.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/ML-Agents/Template/Scripts/DroneAgent.cs">
     <Files>
+      <File FileName="Assets/ML-Agents/Template/Scripts/DroneAgent.cs" Line="93" Column="37" />
+      <File FileName="Assets/VelocityControl/VelocityControl.cs" Line="115" Column="3" />
       <File FileName="Assets/RPY PID Control/BasicControl.cs" Line="1" Column="1" />
-      <File FileName="Assets/ML-Agents/Template/Scripts/DroneAgent.cs" Line="92" Column="59" />
-      <File FileName="Assets/VelocityControl/VelocityControl.cs" Line="35" Column="2" />
-      <File FileName="Assets/VelocityControl/StateFinder.cs" Line="18" Column="2" />
-      <File FileName="Assets/VelocityControl/InputControl.cs" Line="16" Column="36" />
+      <File FileName="Assets/VelocityControl/StateFinder.cs" Line="24" Column="20" />
+      <File FileName="Assets/VelocityControl/InputControl.cs" Line="1" Column="1" />
+      <File FileName="Assets/ML-Agents/Scripts/Brain.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

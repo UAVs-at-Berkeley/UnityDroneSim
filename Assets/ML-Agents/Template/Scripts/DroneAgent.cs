@@ -7,9 +7,14 @@ public class DroneAgent: Agent {
 	public VelocityControl velocityControl;
 	[Range(0,100)] public float Scale;
 
+	public bool use_new_state = true;
+
 	public GameObject startRegion;
 	public GameObject endRegion;
 	private Bounds endBounds;
+
+	public float FORWARD_VELOCITY;
+	public float YAW_RATE;
 
 	private bool collided = false;
 
@@ -49,39 +54,73 @@ public class DroneAgent: Agent {
 
 		transform.position = new Vector3 (startX, initialPos.y, startZ);
 
-
 		wait = false;
 
 	}
 
+
+	// gets relative header
+	public float normalizedHeader(Vector3 gpsCurr, Vector3 gpsTarg) {
+		Vector3 normalized = Vector3.Normalize (gpsTarg - gpsCurr);
+		normalized.y = 0.0f;
+
+		Vector3 currentHeading = Quaternion.Euler(new Vector3(0.0f, velocityControl.state.Angles.y, 0.0f)) * Vector3.forward;
+		currentHeading.y = 0.0f;
+
+		float angle = Vector3.SignedAngle (currentHeading, normalized, Vector3.up);
+		return angle;
+			
+	}
+
+
 	public override List<float> CollectState()
 	{
 		List<float> state = new List<float>();
-// 13 elements
-//		state.Add (basicControl.Computer.Gyro.Pitch / basicControl.Computer.PitchLimit);
-//		state.Add (basicControl.Computer.Gyro.Roll / basicControl.Computer.RollLimit);
-//		state.Add (basicControl.Computer.Gyro.Yaw / (180));
 
-		state.Add (velocityControl.state.VelocityVector.x / 8.0f); // VX scaled
-		state.Add (velocityControl.state.VelocityVector.y / 8.0f); // VY scaled
-		state.Add (velocityControl.state.AngularVelocityVector.y / 360.0f); //Yaw scaled
 
-		state.Add (velocityControl.transform.position.x);
-		state.Add (velocityControl.transform.position.y);
-		state.Add (velocityControl.transform.position.z);
+		//NEW STATE
 
-		state.Add (velocityControl.transform.rotation.x);
-		state.Add (velocityControl.transform.rotation.y);
-		state.Add (velocityControl.transform.rotation.z);
+		if (use_new_state) {
+			// Header and Magnitude
+			state.Add(normalizedHeader(transform.position, endRegion.transform.position) / 180.0f); //-1 to 1
+			state.Add(Vector3.Magnitude(transform.position - endRegion.transform.position)); // nonscaled magnitude
 
-		state.Add (endRegion.transform.position.x);
-		state.Add (endRegion.transform.position.y);
-		state.Add (endRegion.transform.position.z);
-		state.Add ((collided ? 1.0f : 0.0f));
+			//Velocities (v forward, yaw)
+			state.Add (velocityControl.state.VelocityVector.x / FORWARD_VELOCITY); // VX scaled -1 to 1
+			state.Add (velocityControl.state.AngularVelocityVector.y / YAW_RATE); //Yaw rate scaled -1  to 1
+
+			//collision
+			state.Add ((collided ? 1.0f : 0.0f));
+
+		} else {
+
+			//13 elements
+			state.Add (velocityControl.state.VelocityVector.x / 8.0f); // VX scaled
+			state.Add (velocityControl.state.VelocityVector.y / 8.0f); // VY scaled
+			state.Add (velocityControl.state.AngularVelocityVector.y / 360.0f); //Yaw scaled
+
+			state.Add (velocityControl.transform.position.x);
+			state.Add (velocityControl.transform.position.y);
+			state.Add (velocityControl.transform.position.z);
+
+			state.Add (velocityControl.transform.rotation.x);
+			state.Add (velocityControl.transform.rotation.y);
+			state.Add (velocityControl.transform.rotation.z);
+
+			state.Add (endRegion.transform.position.x);
+			state.Add (endRegion.transform.position.y);
+			state.Add (endRegion.transform.position.z);
+			state.Add ((collided ? 1.0f : 0.0f));
+		}
+
 		return state;
 	}
 
-	// 3 element input
+	// 1 element input
+	// -> -1 : STOP
+	// -> 0 : LEFT + FORWARD
+	// -> 1 : STRAIGHT + FORWARD
+	// -> 2 : RIGHT + FORWARD
 	public override void AgentStep(float[] act)
 	{
 		//only wait initially if we are a non external player
@@ -91,10 +130,32 @@ public class DroneAgent: Agent {
 		// add in code logic for drone control
 //		basicControl.Controller.InputAction(0, act[0], act[1], act[2]);
 
-		velocityControl.desired_vx = act [0] * 8.0f;
-		velocityControl.desired_vy = act [1] * 8.0f;
-		velocityControl.desired_yaw = act [2] * 360.0f;
-		velocityControl.desired_height = velocityControl.desired_height;
+//		Debug.Log (act [0]);
+
+//		float angle = normalizedHeader (transform.position, endRegion.transform.position);
+//		Debug.Log (angle);
+
+		// pitch forward as long as it isn't –1
+		velocityControl.desired_vx = act[0] >= 0 ? FORWARD_VELOCITY : 0.0f;
+		velocityControl.desired_vy = 0.0f;
+
+		if (act [0] == 0) {
+			//LEFT
+			velocityControl.desired_yaw = -YAW_RATE;
+		} else if (act [0] == 2) {
+			//RIGHT
+			velocityControl.desired_yaw = YAW_RATE;
+		} else {
+			//STOP or STRAIGHT
+			velocityControl.desired_yaw = 0.0f;
+		}
+
+
+//		velocityControl.desired_vy = act [1] * 8.0f;
+//		velocityControl.desired_yaw = act [2] * 360.0f;
+//		velocityControl.desired_height = velocityControl.desired_height;
+
+
 
 		reward += RewardFunction();
 
