@@ -98,7 +98,10 @@ public class DroneAgent: Agent {
             AddVectorObs(Vector3.Magnitude(transform.position - endRegion.transform.position)); // nonscaled magnitude
 
             //Velocities (v forward, yaw)
-            AddVectorObs(velocityControl.state.VelocityVector.x / FORWARD_VELOCITY); // VX scaled -1 to 1
+            //Debug.Log(velocityControl.state.VelocityVector);
+            //Debug.Log(velocityControl.state.AngularVelocityVector);
+            //Debug.Log();
+            AddVectorObs(velocityControl.state.VelocityVector.z / FORWARD_VELOCITY); // VX scaled -1 to 1
             AddVectorObs(velocityControl.state.AngularVelocityVector.y / YAW_RATE); //Yaw rate scaled -1  to 1
 
             //collision
@@ -109,8 +112,8 @@ public class DroneAgent: Agent {
         {
 
             //13 elements
-            AddVectorObs(velocityControl.state.VelocityVector.x / 8.0f); // VX scaled
-            AddVectorObs(velocityControl.state.VelocityVector.y / 8.0f); // VY scaled
+            AddVectorObs(velocityControl.state.VelocityVector.z / 8.0f); // VX scaled
+            AddVectorObs(velocityControl.state.VelocityVector.x / 8.0f); // VY scaled
             AddVectorObs(velocityControl.state.AngularVelocityVector.y / 360.0f); //Yaw scaled
 
             AddVectorObs(velocityControl.transform.position.x);
