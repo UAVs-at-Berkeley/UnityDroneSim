@@ -92,15 +92,15 @@ public class VelocityControl : MonoBehaviour {
 		rb.AddRelativeTorque (desiredTorque, ForceMode.Acceleration);
 		rb.AddRelativeForce (desiredForce , ForceMode.Acceleration);
 
-		Debug.Log ("Velocity" + state.VelocityVector);
-		Debug.Log ("Desired Velocity" + desiredVelocity);
-		Debug.Log ("Desired Acceleration" + desiredAcceleration);
-		Debug.Log ("Angles" + state.Angles);
-		Debug.Log ("Desired Angles" + desiredTheta);
-		Debug.Log ("Angular Velocity" + state.AngularVelocityVector);
-		Debug.Log ("Desired Angular Velocity" + desiredOmega);
-		Debug.Log ("Desired Angular Acceleration" + desiredAlpha);
-		Debug.Log ("Desired Torque" + desiredTorque);
+		//Debug.Log ("Velocity" + state.VelocityVector);
+		//Debug.Log ("Desired Velocity" + desiredVelocity);
+		//Debug.Log ("Desired Acceleration" + desiredAcceleration);
+		//Debug.Log ("Angles" + state.Angles);
+		//Debug.Log ("Desired Angles" + desiredTheta);
+		//Debug.Log ("Angular Velocity" + state.AngularVelocityVector);
+		//Debug.Log ("Desired Angular Velocity" + desiredOmega);
+		//Debug.Log ("Desired Angular Acceleration" + desiredAlpha);
+		//Debug.Log ("Desired Torque" + desiredTorque);
 	}
 
 	public void Reset() {

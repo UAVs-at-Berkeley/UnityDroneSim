@@ -16,11 +16,14 @@ public class DroneAgent: Agent {
 	public float FORWARD_VELOCITY;
 	public float YAW_RATE;
 
-	private bool collided = false;
+    public float DONE_DISTANCE;
+
+    private bool collided = false;
 
 	private bool wait = false;
 
 	private Vector3 initialPos;
+
 
 	private float maxX;
 	private float minX;
@@ -80,43 +83,56 @@ public class DroneAgent: Agent {
 	// API-3 changes
 	public override void CollectObservations()
 	{
-//		List<float> state = new List<float>();
+        //		List<float> state = new List<float>();
+        //Debug.Log("CALLED");
+
+        //NEW STATE
+        //do this in collect state so we make sure we don't miss it
+        local_done = isDone() || collided;
 
 
-		//NEW STATE
+        if (use_new_state)
+        {
+            // Header and Magnitude
+            AddVectorObs(normalizedHeader(transform.position, endRegion.transform.position) / 180.0f); //-1 to 1
+            AddVectorObs(Vector3.Magnitude(transform.position - endRegion.transform.position)); // nonscaled magnitude
 
-		if (use_new_state) {
-			// Header and Magnitude
-			AddVectorObs(normalizedHeader(transform.position, endRegion.transform.position) / 180.0f); //-1 to 1
-			AddVectorObs(Vector3.Magnitude(transform.position - endRegion.transform.position)); // nonscaled magnitude
+            //Velocities (v forward, yaw)
+            AddVectorObs(velocityControl.state.VelocityVector.x / FORWARD_VELOCITY); // VX scaled -1 to 1
+            AddVectorObs(velocityControl.state.AngularVelocityVector.y / YAW_RATE); //Yaw rate scaled -1  to 1
 
-			//Velocities (v forward, yaw)
-			AddVectorObs(velocityControl.state.VelocityVector.x / FORWARD_VELOCITY); // VX scaled -1 to 1
-			AddVectorObs(velocityControl.state.AngularVelocityVector.y / YAW_RATE); //Yaw rate scaled -1  to 1
+            //collision
+            AddVectorObs((collided ? 1.0f : 0.0f));
 
-			//collision
-			AddVectorObs((collided ? 1.0f : 0.0f));
+        }
+        else
+        {
 
-		} else {
+            //13 elements
+            AddVectorObs(velocityControl.state.VelocityVector.x / 8.0f); // VX scaled
+            AddVectorObs(velocityControl.state.VelocityVector.y / 8.0f); // VY scaled
+            AddVectorObs(velocityControl.state.AngularVelocityVector.y / 360.0f); //Yaw scaled
 
-			//13 elements
-			AddVectorObs(velocityControl.state.VelocityVector.x / 8.0f); // VX scaled
-			AddVectorObs(velocityControl.state.VelocityVector.y / 8.0f); // VY scaled
-			AddVectorObs(velocityControl.state.AngularVelocityVector.y / 360.0f); //Yaw scaled
+            AddVectorObs(velocityControl.transform.position.x);
+            AddVectorObs(velocityControl.transform.position.y);
+            AddVectorObs(velocityControl.transform.position.z);
 
-			AddVectorObs(velocityControl.transform.position.x);
-			AddVectorObs(velocityControl.transform.position.y);
-			AddVectorObs(velocityControl.transform.position.z);
+            AddVectorObs(velocityControl.transform.rotation.x);
+            AddVectorObs(velocityControl.transform.rotation.y);
+            AddVectorObs(velocityControl.transform.rotation.z);
 
-			AddVectorObs(velocityControl.transform.rotation.x);
-			AddVectorObs(velocityControl.transform.rotation.y);
-			AddVectorObs(velocityControl.transform.rotation.z);
-
-			AddVectorObs(endRegion.transform.position.x);
-			AddVectorObs(endRegion.transform.position.y);
-			AddVectorObs(endRegion.transform.position.z);
-			AddVectorObs((collided ? 1.0f : 0.0f));
-		}
+            AddVectorObs(endRegion.transform.position.x);
+            AddVectorObs(endRegion.transform.position.y);
+            AddVectorObs(endRegion.transform.position.z);
+            AddVectorObs((collided ? 1.0f : 0.0f));
+        }
+        
+        if (collided)
+        {
+            Debug.Log("COLLISION MSG SENT");
+            collided = false;
+        }
+        
 
 	}
 
@@ -131,10 +147,14 @@ public class DroneAgent: Agent {
 		if (wait && brain.brainType == BrainType.Player) {
 			return;
 		}
+
+        if (isDone()) {
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
 		// add in code logic for drone control
 //		basicControl.Controller.InputAction(0, act[0], act[1], act[2]);
 
-		Debug.Log (act);
+		//Debug.Log (act);
 
 //		float angle = normalizedHeader (transform.position, endRegion.transform.position);
 //		Debug.Log (angle);
@@ -162,23 +182,35 @@ public class DroneAgent: Agent {
 
 
 		//increments
-		AddReward(RewardFunction());
+		//AddReward(RewardFunction());
 
 		// done checking
-		Vector3 currPos = new Vector3 (transform.position.x, endBounds.center.y, transform.position.z);
+		//Vector3 currPos = new Vector3 (transform.position.x, endBounds.center.y, transform.position.z);
 //		Debug.Log (currPos);
 //		Debug.Log (endBounds);
-		local_done = local_done || endBounds.Contains (currPos);
 
-		if (local_done){
-			Done ();
-		}
+        // no state collections being called coming in
+        if (local_done)
+        {
+            //Debug.Log("STOP");
+            Done();
+            //HALT ALL MOTION UNTIL RESET
+            velocityControl.enabled = false;
+            GetComponent<Rigidbody>().isKinematic = true;
+        }
 
 	}
+
+	public bool isDone(){
+        Vector3 currPos = new Vector3(transform.position.x, endBounds.center.y, transform.position.z);
+        //return endBounds.Contains(currPos)
+        return Vector3.Magnitude(currPos - endBounds.center) <= DONE_DISTANCE;
+    }
 
 	public override void AgentReset()
 	{
         local_done = false;
+  //      Debug.Log("RESETTING");
 		//temporarily
 		velocityControl.enabled = false;
 		// randomness
@@ -189,10 +221,11 @@ public class DroneAgent: Agent {
 		transform.rotation = Quaternion.Euler (Vector3.forward);
 		//reset, which also re enables
 
-		StartCoroutine (Waiting (1.0f));
-		while (!wait) {
-		}
+		//StartCoroutine (Waiting (1.0f));
+		//while (!wait) {
+		//}
 
+        GetComponent<Rigidbody>().isKinematic = false;
 		velocityControl.Reset ();
 	}
 
@@ -207,19 +240,19 @@ public class DroneAgent: Agent {
 	}
 
 	// super basic reward function
-	float RewardFunction(){
-		if (collided) {
-			collided = false;
-			local_done = true;
-			return -1000.0f;
-		} else {
-			//euclidean horizontal plane distance
-			float dist = Mathf.Pow(endRegion.transform.position.x - velocityControl.transform.position.x, 2) + Mathf.Pow(endRegion.transform.position.z - velocityControl.transform.position.z, 2);
-			dist = Scale * dist;
-			return 1.0f / dist;
-		}
+	//float RewardFunction(){
+		//if (collided) {
+		//	collided = false;
+		//	local_done = true;
+		//	return -1000.0f;
+		//} else {
+		//	//euclidean horizontal plane distance
+		//	float dist = Mathf.Pow(endRegion.transform.position.x - velocityControl.transform.position.x, 2) + Mathf.Pow(endRegion.transform.position.z - velocityControl.transform.position.z, 2);
+		//	dist = Scale * dist;
+		//	return 1.0f / dist;
+		//}
 			
-	}
+	//}
 
 	void OnCollisionEnter(Collision other)
 	{
