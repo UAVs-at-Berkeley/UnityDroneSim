@@ -15,15 +15,16 @@
 3. Clone this repo, master
     1. **master**: Currently velocity_control, stable (supports ML-Agents)
     2. velocity_control: for development of realistic velocity control for drone, supports ML-Agents interface
+		1. ML-Agents v0.3.1b as of right now (0.3 necessary)
     3. custom_physics: Roll, Pitch, Yaw, Throttle PID control [1]
     4. cubedrone: precursor to velocity control branch
 4. Open Up Unity, and select Open and navigate to the root directory of this repository.
 5. Press Play to run the simulation
     1. velocity control branch
-        1. I: FORWARD + STRAIGHT
+        1. I: FORWARD + STRAIGHT (default action in player mode)
         2. J: FORWARD + LEFT
         3. L: FORWARD + RIGHT
-    2. custom_physics branch
+    2. custom_physics branch (behind on environment and ml-agents code)
         1. I: PITCH FORWARD
         2. K: PITCH BACKWARD
         3. J: ROLL LEFT
