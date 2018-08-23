@@ -1,3 +1,0 @@
-/Users/suneelbelkhale1/git/UnityDroneSim/obj/Debug/Assembly-CSharp.csprojResolveAssemblyReference.cache
-/Users/suneelbelkhale1/git/UnityDroneSim/obj/Debug/Assembly-CSharp.csproj.CoreCompileInputs.cache
-/Users/suneelbelkhale1/git/UnityDroneSim/obj/Debug/Assembly-CSharp.dll

@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/DroneSim.unity
-  isLoaded: 1
-  isActive: 1
