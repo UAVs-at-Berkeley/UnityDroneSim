@@ -1012,7 +1012,7 @@ MonoBehaviour:
   desired_vx: 0
   desired_vy: 0
   desired_yaw: 0
-  initial_height: 0
+  initial_height: 4
 --- !u!114 &114271859555978516
 MonoBehaviour:
   m_ObjectHideFlags: 1

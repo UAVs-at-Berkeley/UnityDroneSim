@@ -23,7 +23,7 @@ public class DroneAgent: Agent {
 	private bool wait = false;
 
 	private Vector3 initialPos;
-
+    private Quaternion initialRot;
 
 	private float maxX;
 	private float minX;
@@ -70,6 +70,8 @@ public class DroneAgent: Agent {
 		rand = new System.Random ();
 
 		initialPos = transform.position;
+        initialPos.y = velocityControl.initial_height;
+        initialRot = transform.rotation;
 
 		endBounds = endRegion.GetComponent<Renderer> ().bounds;
 
@@ -80,6 +82,8 @@ public class DroneAgent: Agent {
 		transform.position = new Vector3 (startX, initialPos.y, startZ);
 
 		wait = false;
+
+        collided = false;
 
 		local_done = false;
 
@@ -241,7 +245,7 @@ public class DroneAgent: Agent {
 		float startZ = ((float) rand.NextDouble()) * (maxZ - minZ) + minZ;
 
 		transform.position = new Vector3 (startX, initialPos.y, startZ);
-		transform.rotation = Quaternion.Euler (Vector3.forward);
+        transform.rotation = initialRot;
 		//reset, which also re enables
 
 		//StartCoroutine (Waiting (1.0f));
