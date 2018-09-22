@@ -9,8 +9,14 @@ public class DroneAgent: Agent {
 
 	public bool use_new_state = true;
 
-	public GameObject startRegion;
-	public GameObject endRegion;
+    public int startRegionIndex = -1; // -1 means do random
+    public GameObject[] startRegions;
+    public int endRegionIndex = -1; // -1 means do random
+	public GameObject[] endRegions;
+
+    private GameObject currStartRegion;
+    private GameObject currEndRegion;
+
 	private Bounds endBounds;
 
 	public float FORWARD_VELOCITY;
@@ -35,29 +41,36 @@ public class DroneAgent: Agent {
 	private bool local_done = false;
 
 	public override void InitializeAgent() {
-
-        if (startRegion == null)
+        
+        if (startRegions.Length == 0 || startRegions.GetValue(0) == null)
         {
-            startRegion = GameObject.CreatePrimitive(PrimitiveType.Quad);
+            startRegions = new GameObject[1];
+            GameObject startRegion = GameObject.CreatePrimitive(PrimitiveType.Quad);
             startRegion.transform.Rotate(new Vector3(90, 0, 0));
             startRegion.transform.localScale = new Vector3(3.0f, 3.0f, 1.0f);
             startRegion.transform.localPosition = new Vector3(startRegion.transform.localPosition.x,
                                                             startRegion.transform.localPosition.y - 1,
                                                             startRegion.transform.localPosition.z);
+            startRegions.SetValue(startRegion, 0);
         }
 
-        if (endRegion == null)
+        if (endRegions.Length == 0 || endRegions.GetValue(0) == null)
         {
-            endRegion = GameObject.CreatePrimitive(PrimitiveType.Quad);
+            endRegions = new GameObject[1];
+            GameObject endRegion = GameObject.CreatePrimitive(PrimitiveType.Quad);
             endRegion.transform.Rotate(new Vector3(90, 0, 0));
             endRegion.transform.localScale = new Vector3(3.0f, 3.0f, 1.0f);
             endRegion.transform.localPosition = new Vector3(endRegion.transform.localPosition.x, 
                                                             endRegion.transform.localPosition.y - 1, 
                                                             endRegion.transform.localPosition.z + 100);
+            endRegions.SetValue(endRegion, 0);
         }
 
+        rand = new System.Random();
+        defaultOrRandomizeSetStartEnd();
+
 		Debug.Log ("Start BOUNDS");
-		Renderer rend = startRegion.GetComponent<Renderer>();
+        Renderer rend = currStartRegion.GetComponent<Renderer>();
 		Debug.Log(rend.bounds.max);
 		Debug.Log(rend.bounds.min);
 
@@ -67,13 +80,12 @@ public class DroneAgent: Agent {
 		maxZ = rend.bounds.max.z;
 		minZ = rend.bounds.min.z;
 
-		rand = new System.Random ();
 
 		initialPos = transform.position;
         initialPos.y = velocityControl.initial_height;
         initialRot = transform.rotation;
 
-		endBounds = endRegion.GetComponent<Renderer> ().bounds;
+        endBounds = currEndRegion.GetComponent<Renderer> ().bounds;
 
 		// randomness
 		float startX = ((float) rand.NextDouble()) * (maxX - minX) + minX;
@@ -88,6 +100,30 @@ public class DroneAgent: Agent {
 		local_done = false;
 
 	}
+
+    private void defaultOrRandomizeSetStartEnd(){
+        int sri = startRegionIndex;
+        int eri = endRegionIndex;
+
+        if (sri == -1)
+            sri = rand.Next(startRegions.Length);
+        if (eri == -1)
+            eri = rand.Next(endRegions.Length);
+
+        // error check
+        if (sri >= startRegions.Length || startRegions[sri] == null)
+        {
+            throw new UnityException("Start Region at index: " + sri + ", is invalid");
+        }
+        // error check
+        if (eri >= endRegions.Length || endRegions[eri] == null)
+        {
+            throw new UnityException("End Region at index: " + eri + ", is invalid");
+        }
+
+        currStartRegion = startRegions[sri];
+        currEndRegion = endRegions[eri];
+    }
 
 
 	// gets relative header
@@ -118,8 +154,8 @@ public class DroneAgent: Agent {
         if (use_new_state)
         {
             // Header and Magnitude
-            AddVectorObs(normalizedHeader(transform.position, endRegion.transform.position) / 180.0f); //-1 to 1
-            AddVectorObs(Vector3.Magnitude(transform.position - endRegion.transform.position)); // nonscaled magnitude
+            AddVectorObs(normalizedHeader(transform.position, currEndRegion.transform.position) / 180.0f); //-1 to 1
+            AddVectorObs(Vector3.Magnitude(transform.position - currEndRegion.transform.position)); // nonscaled magnitude
 
             //Velocities (v forward, yaw)
             //Debug.Log(velocityControl.state.VelocityVector);
@@ -148,9 +184,9 @@ public class DroneAgent: Agent {
             AddVectorObs(velocityControl.transform.rotation.y);
             AddVectorObs(velocityControl.transform.rotation.z);
 
-            AddVectorObs(endRegion.transform.position.x);
-            AddVectorObs(endRegion.transform.position.y);
-            AddVectorObs(endRegion.transform.position.z);
+            AddVectorObs(currEndRegion.transform.position.x);
+            AddVectorObs(currEndRegion.transform.position.y);
+            AddVectorObs(currEndRegion.transform.position.z);
             AddVectorObs((collided ? 1.0f : 0.0f));
         }
         
@@ -190,17 +226,16 @@ public class DroneAgent: Agent {
 		velocityControl.desired_vx = act[0] >= 0 ? FORWARD_VELOCITY : 0.0f;
 		velocityControl.desired_vy = 0.0f;
 
-		if (act [0] == 0) {
+		if (act[0] < 1e-8) {  // equals 0
 			//LEFT
 			velocityControl.desired_yaw = -YAW_RATE;
-		} else if (act [0] == 2) {
-			//RIGHT
-			velocityControl.desired_yaw = YAW_RATE;
-		} else {
+        } else if (act[0] < 1 + 1e-8) {  // equals 1
 			//STOP or STRAIGHT
 			velocityControl.desired_yaw = 0.0f;
-		}
-
+        } else {
+            //RIGHT
+            velocityControl.desired_yaw = YAW_RATE;
+        }
 
 //		velocityControl.desired_vy = act [1] * 8.0f;
 //		velocityControl.desired_yaw = act [2] * 360.0f;
@@ -237,8 +272,11 @@ public class DroneAgent: Agent {
 	public override void AgentReset()
 	{
         local_done = false;
-  //      Debug.Log("RESETTING");
-		//temporarily
+
+        //pick new start and end
+        defaultOrRandomizeSetStartEnd();
+
+        //temporary
 		velocityControl.enabled = false;
 		// randomness
 		float startX = ((float) rand.NextDouble()) * (maxX - minX) + minX;
