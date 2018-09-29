@@ -31,17 +31,6 @@ public class FreeSpaceDetection : MonoBehaviour {
         }
 
         commands = new NativeArray<RaycastCommand>(numHorizontalPoints, Allocator.Temp);
-
-        Vector3 origin = transform.localPosition;
-        //Vector3 localForward = transform.rotation * transform.forward;
-
-        //linearly spaced
-        for (int i = 0; i < numHorizontalPoints; i++){
-            float theta = -(fov_degrees / 2.0f) + i * fov_degrees / numHorizontalPoints;
-            var angle_rot = Quaternion.AngleAxis(theta, Vector3.up);
-            var direction = transform.rotation * angle_rot * Vector3.forward;
-            commands[i] = new RaycastCommand(origin, direction, maxDist);
-        }
 	}
 	
     public float[] batchRaycast() {
@@ -49,6 +38,17 @@ public class FreeSpaceDetection : MonoBehaviour {
         // Setup the command and result buffers
         var results = new NativeArray<RaycastHit>(numHorizontalPoints, Allocator.Temp);
 
+        Vector3 origin = transform.localPosition;
+        //Vector3 localForward = transform.rotation * transform.forward;
+
+        //linearly spaced
+        for (int i = 0; i < numHorizontalPoints; i++)
+        {
+            float theta = -(fov_degrees / 2.0f) + i * fov_degrees / numHorizontalPoints;
+            var angle_rot = Quaternion.AngleAxis(theta, Vector3.up);
+            var direction = transform.rotation * angle_rot * Vector3.forward;
+            commands[i] = new RaycastCommand(origin, direction, maxDist);
+        }
         // Set the data of the first command
         //Vector3 origin = Vector3.forward * -10;
         //Vector3 direction = Vector3.forward;
