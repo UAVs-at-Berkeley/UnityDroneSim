@@ -17,6 +17,8 @@ public class DroneAgent: Agent {
     private GameObject currStartRegion;
     private GameObject currEndRegion;
 
+    private FreeSpaceDetection fsd;
+
 	private Bounds endBounds;
 
 	public float FORWARD_VELOCITY;
@@ -41,6 +43,8 @@ public class DroneAgent: Agent {
 	private bool local_done = false;
 
 	public override void InitializeAgent() {
+
+        fsd = gameObject.GetComponent<FreeSpaceDetection>();
         
         if (startRegions.Length == 0 || startRegions.GetValue(0) == null)
         {
@@ -163,10 +167,10 @@ public class DroneAgent: Agent {
             //Debug.Log();
             AddVectorObs(velocityControl.state.VelocityVector.z / FORWARD_VELOCITY); // VX scaled -1 to 1
             AddVectorObs(velocityControl.state.AngularVelocityVector.y / YAW_RATE); //Yaw rate scaled -1  to 1
-
             //collision
             AddVectorObs((collided ? 1.0f : 0.0f));
 
+            AddVectorObs(fsd.batchRaycast());
         }
         else
         {

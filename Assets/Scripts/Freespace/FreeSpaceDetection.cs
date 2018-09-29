@@ -8,7 +8,7 @@ public class FreeSpaceDetection : MonoBehaviour {
     public int numHorizontalPoints;
     public int numBins;
     //public int numVerticalPoints;
-    public float fov_degrees = Camera.main.fieldOfView; // total horizontal field of view 
+    public float fov_degrees = 0; // total horizontal field of view 
     //public float plane_forward_dist; // how far on ground plane to shoot raycasts
     //public float plane_forward_start_dist; // offset from drone in forward direction on ground plane for raycasts
     public float maxDist = 100;
@@ -19,6 +19,9 @@ public class FreeSpaceDetection : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        if (Mathf.Abs(fov_degrees) < 1e-8)
+            fov_degrees = Camera.main.fieldOfView;
+        
         if (numBins > numHorizontalPoints){
             throw new UnityException("More bins than points!");
         }
@@ -87,11 +90,17 @@ public class FreeSpaceDetection : MonoBehaviour {
             output[bin] += results[i].distance / totalSum;
         }
 
+        results.Dispose();
         return output;
     }
 
 	// Update is called once per frame
 	void Update () {
 
+	}
+
+	private void OnDestroy()
+	{
+        commands.Dispose();
 	}
 }
