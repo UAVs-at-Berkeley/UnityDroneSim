@@ -1238,7 +1238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numHorizontalPoints: 2000
-  numBins: 40
+  numBins: 400
   fov_degrees: 0
   maxDist: 100
   displayFreespace: 0
@@ -1314,7 +1314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brainParameters:
-    vectorObservationSize: 45
+    vectorObservationSize: 405
     numStackedVectorObservations: 1
     vectorActionSize: 1
     cameraResolutions:
@@ -1331,7 +1331,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  instanceID: -1208
+  instanceID: -1160
 --- !u!114 &114326466662609100
 MonoBehaviour:
   m_ObjectHideFlags: 1
