@@ -85,9 +85,8 @@ public class DroneAgent: Agent {
 		minZ = rend.bounds.min.z;
 
 
-		initialPos = transform.position;
-        initialPos.y = velocityControl.initial_height;
-        initialRot = transform.rotation;
+        initialPos = new Vector3(transform.position.x, velocityControl.initial_height, transform.position.z);
+        initialRot = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w);
 
         endBounds = currEndRegion.GetComponent<Renderer> ().bounds;
 
@@ -275,6 +274,8 @@ public class DroneAgent: Agent {
 
 	public override void AgentReset()
 	{
+        Debug.Log("Resetting");
+        
         local_done = false;
 
         //pick new start and end
@@ -287,7 +288,7 @@ public class DroneAgent: Agent {
 		float startZ = ((float) rand.NextDouble()) * (maxZ - minZ) + minZ;
 
 		transform.position = new Vector3 (startX, initialPos.y, startZ);
-        transform.rotation = initialRot;
+        transform.rotation = Quaternion.AngleAxis( (float) (rand.NextDouble()) * 2.0f * 180.0f, Vector3.up );
 		//reset, which also re enables
 
 		//StartCoroutine (Waiting (1.0f));
