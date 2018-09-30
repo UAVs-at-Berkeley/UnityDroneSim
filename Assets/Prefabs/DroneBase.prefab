@@ -401,6 +401,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1976944736351944
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4218606295102432}
+  - component: {fileID: 114060934375135842}
+  m_Layer: 0
+  m_Name: RigidBodyWind
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1997323085237368
 GameObject:
   m_ObjectHideFlags: 1
@@ -442,7 +458,7 @@ Transform:
   m_Children:
   - {fileID: 4685468158847624}
   m_Father: {fileID: 4340667180271852}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4204248318337552
 Transform:
@@ -456,6 +472,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4357867903532992}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4218606295102432
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1976944736351944}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4340667180271852}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4302397597385874
 Transform:
@@ -500,6 +529,7 @@ Transform:
   - {fileID: 4465050691322064}
   - {fileID: 224033230509945474}
   - {fileID: 4807710363992470}
+  - {fileID: 4218606295102432}
   - {fileID: 4198999323543592}
   - {fileID: 4357867903532992}
   m_Father: {fileID: 0}
@@ -520,7 +550,7 @@ Transform:
   - {fileID: 4402003460419718}
   - {fileID: 4302397597385874}
   m_Father: {fileID: 4340667180271852}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4402003460419718
 Transform:
@@ -1213,6 +1243,34 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1912138512113626}
   m_Enabled: 1
+--- !u!114 &114060934375135842
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1976944736351944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7653028c804f4c89947739c53765f9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drone: {fileID: 54379775675223440}
+  apply_force: 1
+  strength_coef: 0.0015
+  strength_mean: 50
+  strength_variance: 30
+  strength_hold_variance: 1000
+  pulse_period_mean: 7
+  pulse_period_variance: 5
+  pulse_duration_mean: 10
+  pulse_duration_variance: 2
+  motion_period_mean: 8
+  motion_period_variance: 3
+  wind_change_speed_mean: 0.05
+  wind_change_speed_variance: 0.01
+  strength_off_speed: 50
+  strength_on_speed: 70
+  targetDirection: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &114143011881528890
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1331,7 +1389,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  instanceID: -1160
+  instanceID: -1148
 --- !u!114 &114326466662609100
 MonoBehaviour:
   m_ObjectHideFlags: 1

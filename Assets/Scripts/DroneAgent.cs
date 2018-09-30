@@ -229,13 +229,16 @@ public class DroneAgent: Agent {
 		velocityControl.desired_vx = act[0] >= 0 ? FORWARD_VELOCITY : 0.0f;
 		velocityControl.desired_vy = 0.0f;
 
-		if (act[0] < 1e-8) {  // equals 0
+        if (act[0] < -1 + 1e-8) {
+            //STOP
+            velocityControl.desired_yaw = 0.0f;
+        } else if (act[0] < 1e-8) {  // equals 0
 			//LEFT
 			velocityControl.desired_yaw = -YAW_RATE;
         } else if (act[0] < 1 + 1e-8) {  // equals 1
-			//STOP or STRAIGHT
+			//STRAIGHT
 			velocityControl.desired_yaw = 0.0f;
-        } else {
+        } else{
             //RIGHT
             velocityControl.desired_yaw = YAW_RATE;
         }
