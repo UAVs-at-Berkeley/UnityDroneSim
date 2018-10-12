@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MLAgents;
 
 public class DroneAgent: Agent {
 
@@ -207,7 +208,7 @@ public class DroneAgent: Agent {
 	// -> 0 : LEFT + FORWARD
 	// -> 1 : STRAIGHT + FORWARD
 	// -> 2 : RIGHT + FORWARD
-	public override void AgentAction(float[] act, string textAction)
+	public override void AgentAction(float[] vectorAction, string textAction)
 	{
 		//only wait initially if we are a non external player
 		if (wait && brain.brainType == BrainType.Player) {
@@ -226,16 +227,16 @@ public class DroneAgent: Agent {
 //		Debug.Log (angle);
 
 		// pitch forward as long as it isn't –1
-		velocityControl.desired_vx = act[0] >= 0 ? FORWARD_VELOCITY : 0.0f;
+        velocityControl.desired_vx = vectorAction[0] >= 0 ? FORWARD_VELOCITY : 0.0f;
 		velocityControl.desired_vy = 0.0f;
 
-        if (act[0] < -1 + 1e-8) {
+        if (vectorAction[0] < -1 + 1e-8) {
             //STOP
             velocityControl.desired_yaw = 0.0f;
-        } else if (act[0] < 1e-8) {  // equals 0
+        } else if (vectorAction[0] < 1e-8) {  // equals 0
 			//LEFT
 			velocityControl.desired_yaw = -YAW_RATE;
-        } else if (act[0] < 1 + 1e-8) {  // equals 1
+        } else if (vectorAction[0] < 1 + 1e-8) {  // equals 1
 			//STRAIGHT
 			velocityControl.desired_yaw = 0.0f;
         } else{

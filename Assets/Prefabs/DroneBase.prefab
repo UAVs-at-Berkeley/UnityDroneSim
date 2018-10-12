@@ -1374,7 +1374,7 @@ MonoBehaviour:
   brainParameters:
     vectorObservationSize: 405
     numStackedVectorObservations: 1
-    vectorActionSize: 1
+    vectorActionSize: 01000000
     cameraResolutions:
     - width: 128
       height: 128
@@ -1382,14 +1382,13 @@ MonoBehaviour:
     vectorActionDescriptions:
     - 
     vectorActionSpaceType: 0
-    vectorObservationSpaceType: 1
-  brainType: 0
+  brainType: 2
   CoreBrains:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  instanceID: -1148
+  instanceID: -1158
 --- !u!114 &114326466662609100
 MonoBehaviour:
   m_ObjectHideFlags: 1
