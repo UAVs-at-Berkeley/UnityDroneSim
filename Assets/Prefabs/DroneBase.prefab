@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 33926201706792434}
   - component: {fileID: 23932719170190734}
   - component: {fileID: 65597243328382510}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PropFL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 114145603923244640}
   - component: {fileID: 64614164402394468}
   - component: {fileID: 154702406167289886}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DroneParent
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 4204248318337552}
   - component: {fileID: 20583670104278118}
   - component: {fileID: 124812286450660122}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 3PV
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4121231851307864}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MotorRL
   m_TagString: Motor
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4321375549578510}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MotorFR
   m_TagString: Motor
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 33497585185885436}
   - component: {fileID: 23751015744924440}
   - component: {fileID: 65034956326787472}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PropRR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 33218153242700932}
   - component: {fileID: 23188680262164126}
   - component: {fileID: 65354907124810842}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PropFR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4302397597385874}
   - component: {fileID: 182442381205312532}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WindZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 4986850867996764}
   - component: {fileID: 33079220737681114}
   - component: {fileID: 23108309024054310}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DroneObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,7 +359,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4549352066498168}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MotorFL
   m_TagString: Motor
   m_Icon: {fileID: 0}
@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 33689940763158372}
   - component: {fileID: 23031871344880664}
   - component: {fileID: 65748890535691270}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PropRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4666071513667314}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MotorRR
   m_TagString: Motor
   m_Icon: {fileID: 0}
@@ -768,7 +768,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 567
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 2
@@ -888,7 +888,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 567
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 1
@@ -1473,7 +1473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   droneTransform: {fileID: 4357867903532992}
-  offset: {x: 0, y: 0, z: 0.5}
+  offset: {x: 0, y: 0, z: 0}
   temp: 0.3
   rpLimitRatio: 0.2
 --- !u!114 &114673619509455136
