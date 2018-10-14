@@ -1257,8 +1257,8 @@ MonoBehaviour:
   drone: {fileID: 54379775675223440}
   apply_force: 1
   strength_coef: 0.0015
-  strength_mean: 50
-  strength_variance: 30
+  strength_mean: 30
+  strength_variance: 20
   strength_hold_variance: 1000
   pulse_period_mean: 7
   pulse_period_variance: 5

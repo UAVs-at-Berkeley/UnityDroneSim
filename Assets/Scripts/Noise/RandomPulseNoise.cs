@@ -11,8 +11,8 @@ public class RandomPulseNoise : MonoBehaviour {
     public float strength_coef = 0.0015f;
 
     //mean/variance of force strength setpt
-    public float strength_mean = 50.0f;
-    public float strength_variance = 30.0f;
+    public float strength_mean = 30.0f;
+    public float strength_variance = 20.0f;
 
     //variance of force vector magnitude during the pulse around the setpt
     public float strength_hold_variance = 1000.0f;
