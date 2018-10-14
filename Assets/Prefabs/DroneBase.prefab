@@ -1420,7 +1420,7 @@ MonoBehaviour:
     maxStep: 0
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 10
+    numberOfActionsBetweenDecisions: 1
   velocityControl: {fileID: 114202773416505472}
   Scale: 1
   use_new_state: 1
@@ -1529,7 +1529,7 @@ MonoBehaviour:
     width: 128
     height: 128
     qualityLevel: 1
-    timeScale: 1
+    timeScale: 100
     targetFrameRate: -1
   inferenceConfiguration:
     width: 1280
