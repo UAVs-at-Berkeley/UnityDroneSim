@@ -99,7 +99,7 @@ public class FreeSpaceDetection : MonoBehaviour {
         norm_output[numBins] = totalSum;
 
         results.Dispose();
-        return output;
+        return norm_output;
     }
 
 	// Update is called once per frame
