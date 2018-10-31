@@ -69,26 +69,34 @@ public class FreeSpaceDetection : MonoBehaviour {
             
         }
 
-        //get sum
-        float totalSum = 0.0f;
-        for (int i = 0; i < results.Length; i++)
-        {
-            totalSum += results[i].distance;
-        }
         //set to zero
         float[] output = new float[numBins];
         for (int i = 0; i < numBins; i++)
         {
             output[i] = 0.0f;
         }
-
+        
         //normalize and place in buckets
         int elsPerBin = ((int)results.Length / numBins);
         for (int i = 0; i < results.Length; i++)
         {
             int bin = i / elsPerBin;
-            output[bin] += results[i].distance / totalSum;
+            output[bin] += results[i].distance / elsPerBin; // average each bin over entries
         }
+
+        //get sum
+        float totalSum = 0.0f;
+        for (int i = 0; i < output.Length; i++)
+        {
+            totalSum += output[i];
+        }
+
+        float[] norm_output = new float[numBins+1];
+        for (int i = 0; i < output.Length; i++)
+        {
+            norm_output[i] = output[i] / totalSum;
+        }
+        norm_output[numBins] = totalSum;
 
         results.Dispose();
         return output;
